@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Cover note to TDs with formatting</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email to TDs with Annual Report 2011 HTML</name>
+    <style>none</style>
+    <subject>FLAC Briefing on Annual Report 2011 - Thurs 5 July</subject>
+    <textOnly>Dear Deputy {!Contact.LastName},
+
+I am pleased to attach an electronic copy of FLAC’s Annual  Report for 2011 which was recently launched at FLAC’s office on Dorset Street  by the Minister for Justice, Equality &amp; Defence Alan Shatter TD.
+
+As you’ll see from the report, in  FLAC&apos;s key areas of work in 2011, we concentrated on providing practical,  useful legal information to the public and to other bodies working with the  public, on monitoring the state&apos;s duty to respect, protect and realise basic  human rights, and on promoting legal reform that is progressive, fair and that  advances social justice. This includes:
+
+- clarifying consumer credit rights around Hire  Purchase in the Gabriel case
+- working with other organisations on a set of  basic principles to overcome personal debt,
+- preparing guides on topics like the Code of  Conduct on Mortgage Arrears, the Social Welfare Appeals process and the  Civil Legal Aid system,
+- campaigning for the recognition of transgender  people and the rights of deaf people to serve on juries,
+- advocating for a fairer and more transparent  social welfare system, 
+- progressing public interest law in Ireland via  the Public Interest Law Alliance project (PILA) which provides legal  training and pro bono legal assistance and support to NGOs from its  register of lawyers and legal firms, and
+- providing basic legal information through a  dedicated phone-line team and offering free legal advice at 80 locations  around Ireland.
+
+
+In order to discuss these key aspects of the report and  FLAC’s ongoing work in these areas of crucial importance to people in Ireland  today, Deputy Alan Farrell has kindly arranged for FLAC to do a briefing to TDs  and Senators in the AV Room next week. At this briefing, FLAC will present on  various aspects of its work and will answer any questions arising. Hard copies  of the report will also be available.
+
+Date: Thursday 5 July 2012
+
+Time:  11am – 12pm
+
+Location: AV Room, Leinster House
+
+We hope  that you find FLAC’s Annual Report 2011 both interesting and relevant and look  forward to seeing you, or one of your colleagues, on Thursday 5 July if you are  available to attend. Alternatively, I would be happy to meet with you, at your  convenience, to discuss any aspect of the Report or of FLAC’s work in general.
+
+Kind  regards
+
+Noeline
+
+Noeline Blackwell
+
+Director General
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lr Dorset Street, Dublin 1
+
+Tel:     (353) 1-874  5690  Fax:    (353) 1-874 532
+
+LoCall: 1890-350 250  Web: http://www.flac.ie
+
+
+Free Legal Advice Centres Ltd is a  company limited by guarantee not having a share capital, registered in Dublin,  Ireland. Company registration number 49413. Directors: Don Crewe, Paul  O&apos;Connell, Iseult O&apos;Malley, Peter Ward, Róisín Webb
+
+
+NB: The information in this e-mail may be confidential and may be  legally privileged.  It is intended for the listed addressee(s). Access to  this e-mail by anyone else is unauthorised.  If you are not the intended  recipient, any distribution, copying, or other actions taken in reliance on it  are prohibited and may be unlawful.  The opinions and advice contained in  this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice
+http://www.flac.ie</textOnly>
+    <type>custom</type>
+</EmailTemplate>

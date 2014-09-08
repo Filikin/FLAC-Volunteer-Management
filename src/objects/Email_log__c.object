@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used for logging emails that don&apos;t come from contacts</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Area_of_law__c</fullName>
+        <externalId>false</externalId>
+        <label>Area of law</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Civil</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client-Solicitor relations/issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit &amp; Debt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Criminal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housing/Landlord &amp; Tenant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immigration/refugee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Aid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Negligence/Personal Injury</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neighbour disputes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property/Interest in Land</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Welfare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Will/Probate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Breakdown_of_Primary_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Breakdown of Primary Area</label>
+        <picklist>
+            <controllingField>Area_of_law__c</controllingField>
+            <picklistValues>
+                <fullName>Tort</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Court proceedings</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <controllingFieldValues>Criminal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ward of Court</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Power of Attorney</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deedpoll</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Protection</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freedom of Information</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solicitor fees</fullName>
+                <controllingFieldValues>Client-Solicitor relations/issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unsatisfactory performance/rep</fullName>
+                <controllingFieldValues>Client-Solicitor relations/issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract</fullName>
+                <controllingFieldValues>Company</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantee</fullName>
+                <controllingFieldValues>Company</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal liability</fullName>
+                <controllingFieldValues>Company</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Setting up company</fullName>
+                <controllingFieldValues>Company</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Intellectual Property</fullName>
+                <controllingFieldValues>Company</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <controllingFieldValues>Consumer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Goods &amp; services</fullName>
+                <controllingFieldValues>Consumer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Utility bills</fullName>
+                <controllingFieldValues>Consumer</controllingFieldValues>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communcaitons</fullName>
+                <controllingFieldValues>Consumer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mortgage arrears</fullName>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rent Arrears</fullName>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Loans</fullName>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Loan</fullName>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hire purchase</fullName>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Debt Collection Procedures</fullName>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Defendant</fullName>
+                <controllingFieldValues>Criminal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Victim</fullName>
+                <controllingFieldValues>Criminal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Problem with gardai</fullName>
+                <controllingFieldValues>Criminal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Aid</fullName>
+                <controllingFieldValues>Criminal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dismissal</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discrimination</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract terms</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Redundancy</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Griveance Procedures</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bullying/Harrassment</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maternity</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Divorce/Separation</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nullity</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Civil Partnership/co-habitation</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custody/Access/Guardianship</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Childcare</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child abduction</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Domestic Violence</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family Home</fullName>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Landlord-tenant issues</fullName>
+                <controllingFieldValues>Housing/Landlord &amp; Tenant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management Company issues</fullName>
+                <controllingFieldValues>Housing/Landlord &amp; Tenant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rent issues</fullName>
+                <controllingFieldValues>Housing/Landlord &amp; Tenant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Authority Housing</fullName>
+                <controllingFieldValues>Housing/Landlord &amp; Tenant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial</fullName>
+                <controllingFieldValues>Housing/Landlord &amp; Tenant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family Re-unification</fullName>
+                <controllingFieldValues>Immigration/refugee</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Naturalisation /Citizenship</fullName>
+                <controllingFieldValues>Immigration/refugee</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visas/work Permits</fullName>
+                <controllingFieldValues>Immigration/refugee</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deportation/Custody</fullName>
+                <controllingFieldValues>Immigration/refugee</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confusion with Legal Aid Board</fullName>
+                <controllingFieldValues>Legal Aid</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Applying for Legal Aid</fullName>
+                <controllingFieldValues>Legal Aid</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaining about Legal Aid Board</fullName>
+                <controllingFieldValues>Legal Aid</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FLAC centre details</fullName>
+                <controllingFieldValues>Legal Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other phone numbers</fullName>
+                <controllingFieldValues>Legal Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Looking for Solicitor</fullName>
+                <controllingFieldValues>Legal Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Injury</fullName>
+                <controllingFieldValues>Negligence/Personal Injury</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Negligence</fullName>
+                <controllingFieldValues>Negligence/Personal Injury</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Harassment</fullName>
+                <controllingFieldValues>Neighbour disputes</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Boundary issues</fullName>
+                <controllingFieldValues>Neighbour disputes</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase/Sale of property</fullName>
+                <controllingFieldValues>Property/Interest in Land</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Damage to property</fullName>
+                <controllingFieldValues>Property/Interest in Land</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Rents</fullName>
+                <controllingFieldValues>Property/Interest in Land</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Habitual Residence Condition</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Welfare Appeals</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rent supplement</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motrgage Interest</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplementary Welfare Allowance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Means Test</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Payments</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wills</fullName>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Succession</fullName>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Probate</fullName>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Intestacy</fullName>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dispute</fullName>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tax Issues</fullName>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <controllingFieldValues>Civil</controllingFieldValues>
+                <controllingFieldValues>Client-Solicitor relations/issues</controllingFieldValues>
+                <controllingFieldValues>Company</controllingFieldValues>
+                <controllingFieldValues>Consumer</controllingFieldValues>
+                <controllingFieldValues>Credit &amp; Debt</controllingFieldValues>
+                <controllingFieldValues>Criminal</controllingFieldValues>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <controllingFieldValues>Family</controllingFieldValues>
+                <controllingFieldValues>Housing/Landlord &amp; Tenant</controllingFieldValues>
+                <controllingFieldValues>Immigration/refugee</controllingFieldValues>
+                <controllingFieldValues>Legal Aid</controllingFieldValues>
+                <controllingFieldValues>Legal Services</controllingFieldValues>
+                <controllingFieldValues>Negligence/Personal Injury</controllingFieldValues>
+                <controllingFieldValues>Neighbour disputes</controllingFieldValues>
+                <controllingFieldValues>Property/Interest in Land</controllingFieldValues>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <controllingFieldValues>Will/Probate</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Date_email_received__c</fullName>
+        <externalId>false</externalId>
+        <label>Date email received</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Email log</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>E-{00000}</displayFormat>
+        <label>Email log Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Email logs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

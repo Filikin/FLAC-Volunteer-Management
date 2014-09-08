@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Corrective Email to MEPs re ECB Opinion</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email to MEPs No2 26 Sept 2012</name>
+    <style>none</style>
+    <subject>FLAC correction to email on Personal Insolvency and ECB Opinion</subject>
+    <textOnly>Dear Members of the European Parliament
+
+
+I sent you an email earlier today relating to the Opinion of the ECB on Ireland’s Personal Insolvency Bill 2012. I meant to send you FLAC’s reaction to the Opinion as an attachment. Instead, I attached the actual Opinion.
+
+
+With sincere apologies for the inconvenience, I now attach FLAC’s reaction to that Opinion, for your consideration.
+
+
+Kind regards
+
+Noeline
+
+
+
+Noeline Blackwell
+
+Director General, FLAC (Free Legal Advice Centres Ltd)
+
+13 Lower Dorset St., Dublin 1. Ireland.
+
+
+Ph: (353) 1 887 3600
+
+Lo-call: 1890 350 250
+
+Fax: (353) 1 874 5320
+
+Web: www.flac.ie
+
+
+Free Legal Advice Centres is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number: 49413. Directors: Don Crew, Liam Thornton, Peter Ward, Róisín Webb.
+
+NB: The information in this e-mail is intended for the listed addressee(s). It may be confidential and may be legally privileged. Access to this email by anyone else is unauthorised. If you are not the intended recipient, any distribution, copying or other actions taken in reliance on it are prohibited and may be unlawful. The opinions and advice contained in this email may not be those of FLAC.
+
+_____________________________________
+
+FLAC – promoting access to justice</textOnly>
+    <type>custom</type>
+</EmailTemplate>

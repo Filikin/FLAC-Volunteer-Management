@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Advice_detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Advice detail</label>
+        <picklist>
+            <controllingField>Type_of_advice__c</controllingField>
+            <picklistValues>
+                <fullName>Mortgage Arrears</fullName>
+                <controllingFieldValues>Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hire Purchase</fullName>
+                <controllingFieldValues>Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal loans</fullName>
+                <controllingFieldValues>Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Debt collection procedures</fullName>
+                <controllingFieldValues>Debt</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unfair dismissal</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Redundancy</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discrimination</fullName>
+                <controllingFieldValues>Employment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jobseeker’s Benefit</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jobseeker’s Allowance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disability Allowance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Domiciliary Care Allowance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Illness Benefit</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Carer’s Allowance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State Contributory Pension</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State Non-Contributory Pension</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplementary Welfare Allowance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exceptional/Urgent Needs Payments</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rent Supplement</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mortgage Interest Supplement</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maternity Benefit</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child Benefit</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>One Parent Family Payment</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Death Related Benefits</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Back to Education/Student Grants</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Social Welfare Payments</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Call_from_organisation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Call from organisation</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Second Tier Advice</relationshipLabel>
+        <relationshipName>Second_Tier_Advice</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact_person__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact person</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Second Tier Advice</relationshipLabel>
+        <relationshipName>Second_Tier_Advice</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_advice_given__c</fullName>
+        <externalId>false</externalId>
+        <label>Date advice given</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Details_of_advice__c</fullName>
+        <externalId>false</externalId>
+        <label>Details of advice</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Details_of_query__c</fullName>
+        <externalId>false</externalId>
+        <label>Details of query</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Follow_up__c</fullName>
+        <externalId>false</externalId>
+        <label>Follow-up</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Referred_to__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred to</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cairde</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Citizens Information Centre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crosscare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doras Luimni</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FLAC centre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immigrant Council of Ireland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Integration Centre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Irish Refugee Council</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local TD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MABS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Migrant Rights Centre of Ireland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NASC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ombudsman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Threshold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UNHCR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Social_welfare_issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Social welfare issue</label>
+        <picklist>
+            <controllingField>Type_of_advice__c</controllingField>
+            <picklistValues>
+                <fullName>Applying for Social Welfare</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Genuinely seeking work</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not available for work</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Part-time work</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self-Employed</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Redundancy and Insolvency</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refusal of payment</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suspension of Payment</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HRC</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inspections</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recovery of Overpayment</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fraud/Prosecutions</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social welfare appeal</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Review by Deciding Officer</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chief Appeals Officer’s Review</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freedom of Information</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spouse/Civil Partner/Cohabitant’s Income</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moving to or from Ireland</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Claiming Benefits abroad</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maladministration</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaints about Department</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ombudsman</fullName>
+                <controllingFieldValues>Social Welfare</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_advice__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of advice</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Debt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Welfare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Second Tier Advice</label>
+    <listViews>
+        <fullName>Advice_on_debt</fullName>
+        <columns>NAME</columns>
+        <columns>Advice_detail__c</columns>
+        <columns>Details_of_query__c</columns>
+        <columns>Referred_to__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type_of_advice__c</field>
+            <operation>equals</operation>
+            <value>Debt</value>
+        </filters>
+        <label>Advice on debt</label>
+    </listViews>
+    <listViews>
+        <fullName>Advice_on_employment</fullName>
+        <columns>NAME</columns>
+        <columns>Advice_detail__c</columns>
+        <columns>Details_of_query__c</columns>
+        <columns>Referred_to__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type_of_advice__c</field>
+            <operation>equals</operation>
+            <value>Employment</value>
+        </filters>
+        <label>Advice on employment</label>
+    </listViews>
+    <listViews>
+        <fullName>Advice_on_social_welfare</fullName>
+        <columns>NAME</columns>
+        <columns>Advice_detail__c</columns>
+        <columns>Details_of_query__c</columns>
+        <columns>Referred_to__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type_of_advice__c</field>
+            <operation>equals</operation>
+            <value>Social Welfare</value>
+        </filters>
+        <label>Advice on social welfare</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Type_of_advice__c</columns>
+        <columns>Advice_detail__c</columns>
+        <columns>Referred_to__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>STD-{00000}</displayFormat>
+        <label>Second Tier Advice Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Second Tier Advice</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Type_of_advice__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Advice_detail__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Referred_to__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

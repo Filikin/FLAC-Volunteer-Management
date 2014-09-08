@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>PILA - Private and Confidential</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Emer_Signature</letterhead>
+    <name>Greater Independent Living Dublin</name>
+    <style>formalLetter</style>
+    <subject>PILA -Private and Confidential</subject>
+    <textOnly>******************************************
+
+Eithne Lynch
+
+Legal Officer
+
+Public Interest Law Alliance
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lr Dorset Street, Dublin 1
+
+Tel: 01-8873630 Fax:    01-874 5320
+
+
+Web: http://www.pila.ie
+
+
+
+Free Legal Advice Centres Ltd is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number 49413. Directors: Don Crewe, Liam Thornton, Peter Ward, Róisín Webb
+
+
+NB: The information in this e-mail may be confidential and may be legally privileged.  It is intended for the listed addressee(s). Access to this e-mail by anyone else is unauthorised.  If you are not the intended recipient, any distribution, copying, or other actions taken in reliance on it are prohibited and may be unlawful.  The opinions and advice contained in this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice
+
+http://www.flac.ie</textOnly>
+    <type>html</type>
+</EmailTemplate>

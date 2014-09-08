@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>test glorious 12th</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Noeline test</name>
+    <style>none</style>
+    <subject>glorious 12th test</subject>
+    <textOnly>From: Monta Taurmane
+
+Sent: 12 July 2012 14:22
+
+To: Noeline Blackwell
+
+Cc: Emer Butler
+
+Subject: FW: Gette Abildgart came in this afternoon (she was in contac with yoou before about her case regarding to Free Movement regulation...
+
+
+
+
+From: Monta Taurmane
+Sent: 12 July 2012 10:00
+To: Noeline Blackwell
+Cc: Emer Butler
+Subject: Phone call from Gette Abildgart (she was in contac with yoou before about her case regarding to Free Movement regulation...
+
+
+Dear Noeline,
+
+This lady called this morning and said that you have spoken with her before about her case. She had social welfare issue and she was refused legal Aid in Denmark. You asked her to call back if she has some new information and now she has something new to say.
+
+Please contact her back at 0868983356
+
+She has a hearing with the Social welfare on Tuesday morning and she wants you to go with her.
+
+
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lr Dorset Street, Dublin 1
+
+Tel:     01-887 3600           Fax: 01-874 5320
+
+LoCall: 1850-350 250         Web: http://www.flac.ie
+
+
+
+
+Free Legal Advice Centres Ltd is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number 49413. Directors: Don Crewe, Liam Thornton, Peter Ward, Róisín Webb.
+
+
+NB: The information in this e-mail may be confidential and may be legally privileged.  It is intended for the listed addressee(s). Access to this e-mail by anyone else is unauthorised. If you are not the intended recipient, any distribution, copying, or other actions taken in reliance on it are prohibited and may be unlawful.  The opinions and advice contained in this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice
+http://www.flac.ie</textOnly>
+    <type>custom</type>
+</EmailTemplate>

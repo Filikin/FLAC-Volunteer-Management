@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Mail to politicians FLAC reaction to ECB Opinion</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ECB Opinion reaction to MEPs Sept 2012</name>
+    <style>none</style>
+    <subject>Personal Insolvency Bill. FLAC reaction to ECB Opinion</subject>
+    <textOnly>Dear Irish Members of the European Parliament,
+
+
+Please find attached a submission that we made to the office of the European Central Bank last Friday 21 September 2012. We were prompted to do so following the publication by the Bank of its Opinion on the Personal Insolvency Bill 2012. (CON 2012/70 ECB Public https://www.ecb.int/ecb/legal/pdf/en_con_2012_70_f.pdf)
+
+
+We thought that because of the involvement of the European Central Bank, you might be interested in FLAC’s reaction, where we take issue with some underlying assumptions in the opinion and note the absence of the consumer perspective. If you want to discuss the matter any further, please do not hesitate to contact me or my colleague Paul Joyce.
+
+
+We sent our submission to the main website address of the Bank who will no doubt forward it to the appropriate person. We have not yet received an acknowledgement. However, it would be useful to have some discussion with the relevant officers of the bank about the thinking behind the Opinion. This may be something that the Parliament can do. There might be other ways of better understanding the thinking behind the Opinion and we would very much welcome any ideas you might have about that, if you thought it useful.
+
+
+Yours truly
+
+
+Noeline
+
+
+
+Noeline Blackwell
+
+Director General, FLAC (Free Legal Advice Centres Ltd)
+
+13 Lower Dorset St., Dublin 1. Ireland.
+
+
+Ph: (353) 1 887 3600
+
+Lo-call: 1890 350 250
+
+Fax: (353) 1 874 5320
+
+Web: www.flac.ie
+
+
+Free Legal Advice Centres is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number: 49413. Directors: Don Crew, Liam Thornton, Peter Ward, Róisín Webb.
+
+NB: The information in this e-mail is intended for the listed addressee(s). It may be confidential and may be legally privileged. Access to this email by anyone else is unauthorised. If you are not the intended recipient, any distribution, copying or other actions taken in reliance on it are prohibited and may be unlawful. The opinions and advice contained in this email may not be those of FLAC.
+
+_____________________________________
+
+FLAC – promoting access to justice</textOnly>
+    <type>custom</type>
+</EmailTemplate>

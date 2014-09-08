@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <columns>
+        <field>Contact$Volunteer_Status__c</field>
+    </columns>
+    <description>Both active and inactive volunteer advisor barristers</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Type_of_Volunteering__c</column>
+            <operator>equals</operator>
+            <value>FLAC Centre</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Member_of_the_legal_profession__c</column>
+            <operator>equals</operator>
+            <value>Barrister,Devilling</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Barrister Volunteers ALL</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

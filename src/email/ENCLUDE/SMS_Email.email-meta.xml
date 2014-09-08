@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to be sent when SMS object created.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>SMS Email</name>
+    <style>none</style>
+    <subject>SMS Message</subject>
+    <type>text</type>
+</EmailTemplate>

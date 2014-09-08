@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to Public Service Oversight and Petitions Committee</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Emer_Signature</letterhead>
+    <name>Noeline&apos;s Email Template</name>
+    <style>formalLetter</style>
+    <subject>Meeting 2 April with Equality Budgeting Campaign</subject>
+    <textOnly>Dear Committee member,
+
+
+We are pleased to note that you will meet with the Equality Budgeting Campaign tomorrow, Wednesday, 2 April 2014.  In advance of that meeting, we write to support the stance of those who seek an equality budgeting framework and to suggest that a human rights framework for budgets is also appropriate. We also want to highlight a joint endeavour that we carried out with the Equality Budgeting Campaign last autumn and to seek further consideration for the same issues raised then in advance of Budget 2015.
+
+Last October, immediately after the 2014 Budget was announced, PILA - a project within FLAC (Free Legal Advice Centres) - and the Equality Budgeting Campaign came together to identify the reactions of social justice organisations to that budget. The project consisted of a survey of 50 social justice organisations, the majority of which had made pre-budget submissions to Government - as well as a meeting in Dublin 2 days after the budget was announced.
+
+Overall, the response to the 2014 Budget was that reforms were needed to the budgetary process to include impact assessments and minimum living standards based on Ireland’s international human rights obligations.
+
+One of the foundations of human rights budgeting is that there should be an opportunity for participation for those who are affected by budgetary decisions. Though there were avenues for civil society submissions, only 13% of organisations involved in the survey felt their recommendations were recognised in the actual budget decisions. The majority of organisations reported that the government did not pay heed to their concerns.
+
+Over 60% of the organisations believed the rights of the people they advocated for were actually downgraded in the budgetary decisions. The strength of this finding is a strong argument to ensure that assessments on the social impact of decisions should be carried out across all departments to ensure a commitment to basic human rights standards and prevent a disproportionate negative impact on certain segments of society. Such assessments are used to inform policy and decision makers in making choices that have the least detrimental effects on different social groups. Currently this is not happening.
+
+A human rights framework also requires the delineation of a minimum income standard for marginalised groups and those dependent solely on social welfare as their main source of income to protect the right of the most disadvantaged to live a life of dignity and ensure an adequate standard of living. Organisations such as the Vincentian Partnership for Social Justice advocated for a minimum income living standard in Budget 2014 but without any recognition in the outcome.  87% of the organisations surveyed stated that in their view, the budget did not consider a minimum standard of living when drawing up the budget. The post-budget analysis found that this has serious socio-economic consequences for social welfare claimants, it increases the at-risk-of-poverty rate,  levels of consistent poverty, deprivation rates and the excludes people from social life.
+
+The organisations noted that there is a role for the Irish Human Rights and Equality Commission as it is within their remit to proof government decisions if referred to them. Traditionally, they have not been asked to look at the budget. The IHREC could be useful to ensure Ireland complies with its international human rights obligations in the budgetary process. Organisations raised the issue of Ireland’s legal commitments to a minimum core under the International Covenant on Economic, Social and Cultural Rights whilst making budgetary decisions.
+
+Most striking was the consensus among those gathered at the meeting that a human rights and equality budgeting approach could mitigate the impact of budget decisions that disproportionately affect certain groups. The results of the survey show:
+
+-  95% of respondents supported equality proofing of all cuts and tax increases.
+-  92% of respondents called for increased involvement of civil society in the budgetary process.
+-  79% of respondents expressed support for incorporation of minimum human rights standards into the budget process.
+-  97% of respondents felt the current approach is not conducive to optimal decision-making.
+
+We believe that it is likely that the Equality Budgeting Campaign will be speaking to these issues directly but we felt it might be helpful to furnish this information from FLAC&apos;s perspective too. As an organisation dedicated to equal access to justice for all, we believe that the right is always affected by budgetary decisions and that a human rights and an equality perspective provide suitable frameworks to make Ireland a more just country.
+
+If you need any further information, please contact me or my colleague Yvonne O&apos;Sullivan.
+
+Yours sincerely
+
+Noeline
+
+
+
+
+
+W
+Noeline Blackwell
+
+Director General
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lower Dorset Street, Dublin 1, Ireland
+
+Ph: (353) 1 887 3600
+
+Lo-call: 1890 350 250
+
+Fax: (353) 1 874 5320
+
+Web: http://www.flac.ie
+
+
+Free Legal Advice Centres Ltd is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number 49413. Directors: Joanne Hyde, Don Crewe, Liam Thornton, Peter Ward, Róisín Webb
+
+
+NB: The information in this e-mail is intended for the listed addressee(s). It  may be confidential and may be legally privileged. Access to this e-mail by anyone else is unauthorised.  If you are not the intended recipient, any distribution, copying, or other actions taken in reliance on it are prohibited and may be unlawful.  The opinions and advice contained in this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice</textOnly>
+    <type>html</type>
+</EmailTemplate>

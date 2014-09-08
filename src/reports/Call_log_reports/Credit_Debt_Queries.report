@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Call_Log__c.Date__c</field>
+    </columns>
+    <columns>
+        <field>Call_Log__c.Breakdown_PA__c</field>
+    </columns>
+    <columns>
+        <field>Call_Log__c.Details_of_query__c</field>
+    </columns>
+    <columns>
+        <field>Call_Log__c.Secondary_area_of_law__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Call_Log__c.Primary_area_of_law__c</column>
+            <operator>equals</operator>
+            <value>Credit &amp; Debt</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Credit &amp; Debt Queries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Call_Log__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Call_Log__c.Date__c</dateColumn>
+        <interval>INTERVAL_CURY</interval>
+    </timeFrameFilter>
+</Report>

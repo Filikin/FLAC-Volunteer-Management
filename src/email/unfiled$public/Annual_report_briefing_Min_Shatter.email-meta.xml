@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Cover note to Minister Shatter with formatting</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Annual report briefing Min Shatter</name>
+    <style>none</style>
+    <subject>FLAC Briefing on Annual Report 2011 - Thurs 5 July</subject>
+    <textOnly>Dear Minister,
+
+Thank you  again for launching FLAC’s Annual Report for 2011 at our office on Dorset  Street last Monday, we were delighted with how the event went.
+
+As a result of this, your colleague Deputy Alan  Farrell has kindly arranged for FLAC to do a briefing to TDs and Senators in  the AV Room next week. At this briefing, FLAC will present on various aspects  of its work and will answer any questions arising.
+
+Date: Thursday 5 July 2012
+
+Time: 11am – 12pm
+
+Location: AV Room, Leinster House
+
+If you or  one of your colleagues are available to attend, we would be delighted to see  you there.
+
+We are  putting together the photos from last week’s event and will send them on to you  when we have them.
+
+Kind  regards
+
+Noeline
+
+Noeline Blackwell
+
+Director General
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lr Dorset Street, Dublin 1
+
+Tel:     (353) 1-874  5690  Fax:    (353) 1-874 532
+
+LoCall: 1890-350 250  Web: http://www.flac.ie
+
+
+Free Legal Advice Centres Ltd is a  company limited by guarantee not having a share capital, registered in Dublin,  Ireland. Company registration number 49413. Directors: Don Crewe, Paul  O&apos;Connell, Iseult O&apos;Malley, Peter Ward, Róisín Webb
+
+
+NB: The information in this e-mail may be confidential and may be  legally privileged.  It is intended for the listed addressee(s). Access to  this e-mail by anyone else is unauthorised.  If you are not the intended  recipient, any distribution, copying, or other actions taken in reliance on it  are prohibited and may be unlawful.  The opinions and advice contained in  this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice
+http://www.flac.ie</textOnly>
+    <type>custom</type>
+</EmailTemplate>

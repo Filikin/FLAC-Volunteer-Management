@@ -1,0 +1,23 @@
+<apex:page StandardController="Campaign" extensions="CloneCampaignClass">
+	<apex:pageMessages />
+	<apex:form >
+        <apex:pageBlock id="thePageBlock" title="Clone campaign {!campaign.Name}">
+		    <apex:pageBlockButtons >
+    		    <apex:commandButton action="{!cloneCampaign}" value="Clone Campaign"/>
+        	</apex:pageBlockButtons>
+        	<apex:pageBlockSection id="CountMembers">
+        		<apex:outputText value="{!NumberOfQualifyingMembers} members will be copied" />
+        	</apex:pageBlockSection>
+			<apex:pageBlockSection title="Select the attributes of the campaign members to copy" columns="1">
+	            <apex:selectList id="status" value="{!statusRequired}" size="1" label="Status">
+    				<apex:selectOptions value="{!CampaignStatusList}"/> 
+    				<apex:actionSupport event="onchange" reRender="CountMembers" />
+  				</apex:selectList>
+                OR&nbsp;<apex:inputField value="{!cm.Attendance__c}"><apex:actionSupport event="onchange" reRender="CountMembers" />
+                </apex:inputField><br/>
+                OR&nbsp;<apex:inputField value="{!cm.Registration__c}"><apex:actionSupport event="onchange" reRender="CountMembers" />
+                </apex:inputField>
+            </apex:pageBlockSection>        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

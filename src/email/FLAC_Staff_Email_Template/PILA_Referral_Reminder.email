@@ -1,0 +1,6 @@
+Hi,
+the current stage of {!Campaign.Name} is {!Campaign.Stage_of_Referral__c}.
+This was due to be completed by {!Campaign.Next_action_to_be_completed_by__c}
+
+regards,
+FLAC

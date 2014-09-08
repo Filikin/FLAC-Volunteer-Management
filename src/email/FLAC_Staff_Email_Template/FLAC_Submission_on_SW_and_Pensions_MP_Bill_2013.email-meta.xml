@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to senators circulating SW bill submission</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Emer_Signature</letterhead>
+    <name>FLAC Submission on SW and Pensions (MP) Bill 2013</name>
+    <style>formalLetter</style>
+    <subject>FLAC Submission on Social Welfare and Pensions (Miscellaneous Provisions) Bill 2013</subject>
+    <textOnly>Dear Senator,
+
+Please find attached FLAC&apos;s submission on the Social Welfare and Pensions (Miscellaneous Provisions) Bill 2013 as passed by Dáil Éireann. This submission deals with s.15 of the Bill and the proposed amendments relating to recovering overpayments.
+
+
+Please do not hesitate to contact me if you have any questions or require further information.
+
+
+Regards,
+
+Saoirse Brady
+
+
+Policy &amp; Advocacy Officer
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lr Dorset Street, Dublin 1
+
+Tel:     (353) 1-887 3600            Fax:    (353) 1-874 5320
+
+LoCall: 1890-350 250         Web: http://www.flac.ie
+
+
+Free Legal Advice Centres Ltd is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number 49413. Directors: Don Crewe, Joanne Hyde, Liam Thornton, Peter Ward, Róisín Webb
+
+
+NB: The information in this e-mail may be confidential and may be legally privileged.  It is intended for the listed addressee(s). Access to this e-mail by anyone else is unauthorised.  If you are not the intended recipient, any distribution, copying, or other actions taken in reliance on it are prohibited and may be unlawful.  The opinions and advice contained in this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice
+
+http://www.flac.ie</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Basic email template including signature for Eamonn</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Emer_Signature</letterhead>
+    <name>PILA - Private and Confidential</name>
+    <style>formalLetter</style>
+    <subject>PILA -Private and Confidential</subject>
+    <textOnly>Dear all
+
+
+
+I trust this email finds you well.
+
+
+
+We have received a request from an organisation that advocates on behalf of people in institutional care (acute psychiatric units, training centres, day centres and day hospitals etc).
+
+
+
+The organisation is seeking a suitably experienced legal practitioner to deliver a legal education session on the topic of &apos;Human Rights and Institutional Care&apos;. Ideally the legal education session would incorporate the Criminal Insanity Act and the Assisted Decision Making (Capacity) Bill 2013. The content of the session will also be informed by hypothetical scenarios presented to the legal practitioner one week prior to the session.
+
+
+
+I would be most grateful if you could please come back to me with expressions of interest by close of business Friday 5 September.
+
+
+
+Thank you to everyone who is doing pro bono work we are very grateful!
+
+
+
+Kind regards,
+
+Eamonn.
+Eamonn Tansey
+
+Project Officer
+
+Public Interest Law Alliance
+
+FLAC (Free Legal Advice Centres Ltd.)
+
+13 Lr Dorset Street, Dublin 1
+
+Tel:  01-8873629 Fax:    01-874 5320
+
+Web: http://www.pila.ie
+
+
+
+
+Free Legal Advice Centres Ltd is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number 49413. Directors: Don Crewe, Joanne Hyde, Liam Thornton, Peter Ward, Róisín Webb.
+
+
+NB: The information in this e-mail may be confidential and may be legally privileged.  It is intended for the listed addressee(s). Access to this e-mail by anyone else is unauthorised.  If you are not the intended recipient, any distribution, copying, or other actions taken in reliance on it are prohibited and may be unlawful.  The opinions and advice contained in this e-mail may not be those of FLAC.
+
+
+************************************
+
+FLAC – promoting access to justice
+http://www.flac.ie</textOnly>
+    <type>html</type>
+</EmailTemplate>

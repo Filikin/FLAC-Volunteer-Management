@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Initial Personal Insolvency briefing to Oireachtas</name>
+    <style>none</style>
+    <subject>FLAC initial submission on Personal Insolvency Bill 2012</subject>
+    <textOnly>Dear Senators and Deputies,
+
+
+FLAC issued an initial reaction to the Personal Insolvency Bill 2012 on its publication on 29 June 2012. As a further contribution to the discussion on the Bill, particularly now as it is going through Second Stage in the Dáil, FLAC has prepared a more detailed submission which is attached to this mail. We hope that the information contained here may be of interest to you or to colleagues. If you want any further information, or would like to discuss the matter further, please feel free to contact our Senior Policy Researcher, Paul Joyce or me.
+
+
+Kind regards
+
+Noeline
+
+
+
+Noeline Blackwell
+
+Director General, FLAC (Free Legal Advice Centres Ltd)
+
+13 Lower Dorset St., Dublin 1. Ireland.
+
+
+Ph: (353) 1 887 3600
+
+Mob: (353) 86 8139089
+
+Lo-call: 1890 350 250
+
+Fax: (353) 1 874 5320
+
+Web: www.flac.ie
+
+
+Free Legal Advice Centres is a company limited by guarantee not having a share capital, registered in Dublin, Ireland. Company registration number: 49413. Directors: Don Crew, Liam Thornton, Peter Ward, Róisín Webb.
+
+NB: The information in this e-mail is intended for the listed addressee(s). It may be confidential and may be legally privileged. Access to this email by anyone else is unauthorised. If you are not the intended recipient, any distribution, copying or other actions taken in reliance on it are prohibited and may be unlawful. The opinions and advice contained in this email may not be those of FLAC.
+
+_____________________________________
+
+FLAC – promoting access to justice</textOnly>
+    <type>custom</type>
+</EmailTemplate>

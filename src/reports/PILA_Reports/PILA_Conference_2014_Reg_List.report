@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Member_of_the_legal_profession__c</field>
+    </columns>
+    <columns>
+        <field>CampaignMember.Special_dietary_requirements__c</field>
+    </columns>
+    <columns>
+        <field>CampaignMember.Accessibility_or_other_special_needs__c</field>
+    </columns>
+    <columns>
+        <field>CampaignMember.Breakout_Session_first_preference__c</field>
+    </columns>
+    <columns>
+        <field>CampaignMember.Breakout_Session_second_preference__c</field>
+    </columns>
+    <description>List of all those registered for the conference and their details</description>
+    <filter>
+        <criteriaItems>
+            <column>CampaignMember.Registration__c</column>
+            <operator>equals</operator>
+            <value>Registered</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>PILA Conference 2014 Reg List</name>
+    <params>
+        <name>scopeid</name>
+        <value>701D0000000vUu0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CampaignContact</reportType>
+    <scope>one</scope>
+    <showDetails>true</showDetails>
+</Report>

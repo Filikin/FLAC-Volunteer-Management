@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>Contact.npe01__Last_Donation_Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Contact.npe01__Lifetime_Giving_History_Amount__c</field>
+    </columns>
+    <description>Donors who gave Last Year but Not This Year</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.npe01__Last_Donation_Date__c</column>
+            <operator>lessThan</operator>
+            <value>1/1/2009</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.npe01__Last_Donation_Date__c</column>
+            <operator>greaterThan</operator>
+            <value>12/31/2008</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>LYBUNT Report</name>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

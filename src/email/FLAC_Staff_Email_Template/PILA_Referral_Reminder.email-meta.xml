@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent if the next action to be completed by is expired</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PILA Referral Reminder</name>
+    <style>none</style>
+    <subject>PILA Referral Reminder for {!Campaign.Name}</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -288,7 +288,7 @@ global with sharing class VOL_CTRL_JobCalendar
 	* @return list<Volunteer_Shift__c>, which will be turned into a Javascript collection.
 	* 
 	* if the campaignID is MY_CENTRES and the job id is null, then show all jobs for my centres, so the strContactID should be the ID of the current logged in user
-	* If on the web, only show jobs where the skill matches the user
+	* If on the web, only show jobs where the skill matches the user and the Number_of_Volunteers_Still_Needed__c is > 0
 	********************************************************************************************************/
     @RemoteAction global static list<Volunteer_Shift__c> getListShiftsWeb(string strCampaignId, string strJobId, 
     	string strStartDateTime, string strEndDateTime, boolean fWeb, string strContactID) 
@@ -312,6 +312,7 @@ global with sharing class VOL_CTRL_JobCalendar
 				where Start_Date_Time__c >= :dtStart and Start_Date_Time__c <= :dtEnd
 					and Volunteer_Job__c in :vJobsMap.keySet()
 					and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
+					and Number_of_Volunteers_Still_Needed__c > 0
 				order by Start_Date_Time__c asc];    		
     	}
     	else if (!fAllJob) {
@@ -352,6 +353,7 @@ global with sharing class VOL_CTRL_JobCalendar
 								and Volunteer_Job__r.Campaign__r.IsActive = true
 								and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
 								and (Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c or Volunteer_Job__r.Skills_Needed__c = :ASSISTANT_SKILL)
+								and Number_of_Volunteers_Still_Needed__c > 0
 							order by Start_Date_Time__c asc];
 	 			   	}
 	 			   	else
@@ -364,6 +366,7 @@ global with sharing class VOL_CTRL_JobCalendar
 								and Volunteer_Job__r.Campaign__r.IsActive = true
 								and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
 								and Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c
+								and Number_of_Volunteers_Still_Needed__c > 0
 							order by Start_Date_Time__c asc];
 	 			   	}	 			   		
  			   	}
@@ -397,6 +400,7 @@ global with sharing class VOL_CTRL_JobCalendar
 							and Volunteer_Job__r.Campaign__c = :strCampaignId
 							and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
 							and (Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c or Volunteer_Job__r.Skills_Needed__c = :ASSISTANT_SKILL)
+							and Number_of_Volunteers_Still_Needed__c > 0
 						order by Start_Date_Time__c asc];
 	 			   	}
 	 			   	else
@@ -409,6 +413,7 @@ global with sharing class VOL_CTRL_JobCalendar
 							and Volunteer_Job__r.Campaign__c = :strCampaignId
 							and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
 							and Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c
+						and Number_of_Volunteers_Still_Needed__c > 0
 						order by Start_Date_Time__c asc];
 	 			   	}
  				}

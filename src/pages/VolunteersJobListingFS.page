@@ -90,6 +90,23 @@
     }      
       
 </script>
+	<apex:outputPanel rendered="{!jobIdFilter = null}" >
+	    <apex:form > 
+	        <apex:pageBlock >
+	            <apex:pageBlockSection columns="1" >
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="{!$ObjectType.FLAC_Centre__c.Label}" />
+	                    <apex:selectList id="ddlCampaignId" value="{!campaignIdFilter}" size="1" >
+	                        <apex:actionSupport immediate="false" event="onchange" rerender="rptJobs" 
+	                            status="retrieveStatus" action="{!ChangeCampaign}" />
+	                        <apex:selectOptions value="{!listSOCampaigns}" /> 
+	                    </apex:selectList>  
+	                </apex:pageBlockSectionItem>
+	            </apex:pageBlockSection>
+	        </apex:pageBlock>
+	    	</apex:form>
+	</apex:outputPanel>
+	
     <apex:outputPanel rendered="{!fCalendar}" layout="block" style="text-align:right">
     	<apex:outputLink value="{!$Site.CurrentSiteUrl + IF(fPersonalSite, 'PersonalSiteJobCalendar', 'JobCalendar') + '?' + strParams}" id="linkCal1" >{!$Label.labelReturnToCalendar}</apex:outputLink>
     </apex:outputPanel>
@@ -120,7 +137,7 @@
         </apex:outputPanel>         
         <apex:dataTable value="{!job.Volunteer_Job_Slots__r}" var="shift" id="rptShifts" columnClasses="cssJobShiftSignup" rendered="{!ShowShifts}" >
             <apex:column style="text-align:center;" >
-                <apex:outputPanel rendered="{!shift.Number_of_Volunteers_Still_Needed__c != 0}" >
+                 <apex:outputPanel rendered="{!shift.Number_of_Volunteers_Still_Needed__c != 0}" >
                     <a href="SignUp" onclick="
                     	var x = '{!shift.System_Note__c}';   
                     	if (x == '') x = JobShiftDateTimeString('{!shift.Start_Date_Time__c}', '{!shift.Duration__c}');

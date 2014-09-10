@@ -4,7 +4,7 @@
 global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 
     // page parameters that can get passed into the page to control its behavior.
-    global ID campaignIdFilter { get; set; }
+    global string campaignIdFilter { get; set; }
     global ID jobIdFilter { get; set; }
     global boolean fCalendar { get; set; }
     global boolean fPersonalSite { get; set; }
@@ -108,6 +108,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
         if (p != null && p != '') campaignIdFilter = p;
         p = params.get('jobId');
         if (p != null && p != '') jobIdFilter = p;
+        if (jobIdFilter == null && campaignIdFilter == null) campaignIdFilter = MY_CENTRES;
         p = params.get('Calendar');
         if (p == '1') fCalendar = true;
         p = params.get('ShowJobName');
@@ -160,6 +161,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
     // The list of Volunteer Jobs.
     global list<Volunteer_Job__c> listVolunteerJobs { 
         get {
+        	system.debug ('In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
             if (listVolunteerJobs == null) {
                         
                 listVolunteerJobs = new list<Volunteer_Job__c>();
@@ -169,6 +171,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                 // eg. date(8/1/2013) gave 7/30/2013 but dateGMT(8/1/2013) gave 8/1/2013.
                 DateTime dtLast = dtNow.addMonths(nMonthsToShow).dateGMT().toStartOfMonth();
                 
+         	system.debug ('1. In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
                 if (jobIdFilter != null) {
                     listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
                         Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
@@ -179,16 +182,41 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                             order by Start_Date_Time__c) 
                         from Volunteer_Job__c where Id = :jobIdFilter  
                         order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
-                } else if (campaignIdFilter != null) {
-                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
-                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
-                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
-                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
-                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
-                            order by Start_Date_Time__c) 
-                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
-                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
+                } else if (campaignIdFilter != null) 
+                {
+        	system.debug ('2. In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
+                	if (campaignIdFilter == MY_CENTRES) // get the list of centres associated with the current volunteer
+			        {
+        	system.debug ('3. In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
+			            Cookie cId = ApexPages.currentPage().getCookies().get('contactIdPersonalSite');
+			            ID contactIdPersonalSite = null;
+			            if (cId != null) contactIdPersonalSite = cId.getValue();
+		 	        	if (contactIdPersonalSite != null)
+			        	{
+				    		map <id, Volunteer_Job__c> vJobsMap = new map <id, Volunteer_Job__c>(VOL_CTRL_JobCalendar.getJobsFromMyCentresForMySkills (contactIdPersonalSite)); // Error handling - check that strContactId is not null or blank
+		                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
+		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
+		                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
+		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+		                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
+		                            order by Start_Date_Time__c) 
+		                        from Volunteer_Job__c where ID in :vJobsMap.KeySet() and Display_on_Website__c = true 
+		                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
+			        	}
+			        } 
+                	else
+                	{
+	                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
+	                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
+	                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
+	                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+	                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+	                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
+	                            order by Start_Date_Time__c) 
+	                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
+	                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
+                	}
                 } else {
                     listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
                         Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
@@ -384,6 +412,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                             }
                         }
                     }
+                    listVHours[0].Status__c = 'Confirmed';
                     VolunteerHoursBeforeInsert(listVHours[0]);
                     update listVHours[0];
                     volunteerHoursIdSignUp = listVHours[0].Id;
@@ -420,6 +449,36 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
             return listStrFieldsVHours;
         }
         set;
+    }
+
+// EK 10/9/2014 adding support for a drop down list of campaigns (centres)
+    // holds the currently selected Campaign in the Campaign dropdown
+	public static final String MY_CENTRES = 'MyCentres';
+
+    // the list of active Volunteer Campaigns -- change to list of centres
+    global list<SelectOption> listSOCampaigns {
+        get 
+        {
+            list<SelectOption> listSO = new list<SelectOption>();
+           	listSO.add(new SelectOption(MY_CENTRES, system.label.labelMyCentres));
+            campaignIdFilter =  MY_CENTRES;
+			listSO.add(new SelectOption('', system.label.labelChoiceAllCentres));
+        	for (Campaign c : [select Name, Id, StartDate from Campaign 
+            	where RecordTypeId = :VOL_SharedCode.recordtypeIdVolunteersCampaign 
+            	and IsActive = true order by Name asc limit 999]) {
+                listSO.add(new SelectOption(c.id, c.name));
+            }
+            return listSO;
+        }
+        set;
+    }
+    
+    // the user has changed the Campaign dropdown
+    global virtual PageReference ChangeCampaign() {
+    	system.debug ('In ChangeCampaign, CampaignIdFilter is ' + CampaignIdFilter);
+        // clear out all state that is specific to the campaign
+        listVolunteerJobs = null;
+        return null;
     }
 
 

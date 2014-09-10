@@ -234,8 +234,7 @@
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
-        <visibleLines>10</visibleLines>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Volunteer_Website_Time_Zone__c</fullName>

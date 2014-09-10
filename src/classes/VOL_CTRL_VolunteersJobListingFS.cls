@@ -97,7 +97,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
         ShowSkills = false;
         ShowShifts = true;
         strLanguage = 'en-us'; 
-        strDateFormat = 'EEEE M/d/yyyy';
+        strDateFormat = 'EEEE d/M/yyyy';
         strTimeFormat = 'h:mm tt';
         nMonthsToShow = 3;  
         dtMonthFilter = system.today(); // default to current month.
@@ -318,7 +318,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
         try {               
             // clear return variables in case we fail.
             contactIdSignUp = null;
-            volunteerHoursIdSignUp = null;
+    //        volunteerHoursIdSignUp = null;
             strSaveResult = null;
             Date dtStart = system.today();
             
@@ -343,7 +343,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
             if (cId != null) contactIdPersonalSite = cId.getValue();
 
             // save or update the contact              
-            contactIdSignUp = VOL_SharedCode.CreateOrUpdateContactFS(contactIdPersonalSite, contact, contact.Volunteer_Organization__c, listStrFields, true);
+            contactIdSignUp = contactIdPersonalSite; // VOL_SharedCode.CreateOrUpdateContactFS(contactIdPersonalSite, contact, contact.Volunteer_Organization__c, listStrFields, true);
 
             // upload any attachment
             if (contactIdSignUp != null && attachment != null && attachment.body != null) {
@@ -391,7 +391,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                     vhours.Contact__c = contactIdSignUp;
                     vhours.Volunteer_Job__c = jobIdSignUp;
                     if (shiftIdSignUp != null && shiftIdSignUp != '') { vhours.Volunteer_Shift__c = shiftIdSignUp; }
-                    vhours.Status__c = 'Web Sign Up';
+                    vhours.Status__c = 'Confirmed';
                     vhours.Start_Date__c = dtStart;
                     VolunteerHoursBeforeInsert(vhours);
                     insert vhours;

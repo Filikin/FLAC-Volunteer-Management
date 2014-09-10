@@ -502,19 +502,7 @@ global with sharing class VOL_SharedCode {
     private static boolean fCheckedForVolunteersNamespace = false;
     global static boolean IsManagedCode {
         get {
-            if (!fCheckedForVolunteersNamespace) {
-            	// in order for this call to work as expected, we must be API Version 28, but we
-            	// want to stay at version 25, so let's find another way!!
-                //Schema.SObjectType token = Schema.getGlobalDescribe().get('GW_Volunteers__Volunteer_Job__c');
-                //IsManagedCode = (token != null);
-
-    			Map<String, Schema.SObjectField> M = Schema.SObjectType.Contact.fields.getMap();
-    			Schema.SObjectField fld = M.get('volunteer_status__c');
-				IsManagedCode = (fld != null);
-                
-                fCheckedForVolunteersNamespace = true;
-            }
-            return IsManagedCode;
+            return false;
         }
         set;
     }   

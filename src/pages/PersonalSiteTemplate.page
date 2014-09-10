@@ -1,6 +1,8 @@
 <!-- 
 // Written by David Habib, copyright (c) 2013 DJH Consulting, djhconsulting.com 
 // This program is released under the GNU Affero General Public License, Version 3. http://www.gnu.org/licenses/
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'bootswatch/bootstrap.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Bootswatch, 'Bootswatch.css')}"/>
 -->
 
 <apex:page showHeader="false" id="SiteTemplate" standardStylesheets="false" controller="VOL_CTRL_PersonalSiteTemplate" cache="false">
@@ -10,7 +12,7 @@
     <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"/>
 
 <!--Load Bootstrap -->     
-    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'bootswatch/bootstrap.css')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'bootswatch/bootstrap.css')}"/>
     <apex:stylesheet value="{!URLFOR($Resource.Bootstrap4Force, 'Bootstrap4Force.css')}"/>    
     <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'bootstrap/css/bootstrap.min.css')}"/>
     <apex:includescript value="{!URLFOR($Resource.Bootstrap, 'bootstrap/js/bootstrap.js')}"/>
@@ -29,7 +31,6 @@
 	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteJobListing', 'active', '')}"><a href="{!$Page.PersonalSiteJobListing + '?nMonthsToShow=1'}" >Volunteer Job Listing</a></li>
 	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteJobCalendar', 'active', '')}"><a href="{!$Page.PersonalSiteJobCalendar + '?nMonthsToShow=1'}" >Volunteer Job Calendar</a></li>
 	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteContactInfo', 'active', '')}"><a href="{!$Page.PersonalSiteContactInfo}" >View your information</a></li>
-	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteReportHours', 'active', '')}"><a href="{!$Page.PersonalSiteReportHours}" >Report your volunteer hours</a></li>                
 	            </ul>
 	        </div>	        
 	    </div>

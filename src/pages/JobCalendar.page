@@ -72,9 +72,12 @@
                     jobId = j$('select[name$=ddlJobId]').val();
                 }
                 if (jobId == null || jobId == '') jobId = '*';
+                
+                var siteContactId = '{!contactIdPersonalSite}';
+   //             if (siteContactId == '') siteContactId = '003L000000OCEjw';
 
                 VOL_CTRL_JobCalendar.getListShiftsWeb(
-                    campaignId, jobId, strApexDateLocale(start, false), strApexDateLocale(end, false), {!fWeb}, function(result, event) {
+                    campaignId, jobId, strApexDateLocale(start, false), strApexDateLocale(end, false), {!fWeb}, siteContactId, function(result, event) {
                     if (event.type == 'exception') {
                         alert(event.message);
                     } else {
@@ -246,11 +249,9 @@
     </apex:outputPanel>
         
     <apex:sectionHeader title="{!$Label.labelCalendarPageTitle}" rendered="{!NOT(fPrint)}" />   
-              Name:  <apex:outputText value="{!contact.FirstName}"/><br/>
      <apex:form > 
-   <div id='debugbit'> Debug: <apex:outputText value="{!debugString}"/></div>     
         <apex:pageBlock >
-            <apex:pageBlockSection columns="1" >
+            <apex:pageBlockSection columns="2" >
                 <apex:pageBlockSectionItem >
                      <apex:outputLabel value="{!$ObjectType.FLAC_Centre__c.Label}" />
                     <apex:selectList id="ddlCampaignId" value="{!campaignId}" size="1" >
@@ -260,10 +261,8 @@
                     </apex:selectList>  
                 </apex:pageBlockSectionItem>
                 
-                <apex:pageBlockSectionItem >
-                    <apex:outputLabel value="{!$ObjectType.Volunteer_Job__c.Label}" />
                     <apex:pageBlockSectionItem >
-                        <apex:selectList id="ddlJobId" value="{!volunteerJobId}" size="1" >
+                        <apex:selectList id="ddlJobId" value="{!volunteerJobId}" size="1" style="visibility: hidden" >
                             <apex:actionSupport immediate="false" event="onchange" rerender="panelPrint" 
                                 status="retrieveStatus" action="{!ChangeVolunteerJob}" />
                             <apex:selectOptions value="{!listSOVolunteerJobs}" /> 
@@ -271,7 +270,6 @@
                         <apex:actionStatus layout="inline" startText="{!$Label.labelMessageLoading}" stopText="" id="retrieveStatus" 
                             startStyle="color:green; font-style:italic" stopStyle="color:black;" onstop="j$('#calendar').fullCalendar('refetchEvents');" />
                     </apex:pageBlockSectionItem>
-                </apex:pageBlockSectionItem>
                 
             </apex:pageBlockSection>
         </apex:pageBlock>

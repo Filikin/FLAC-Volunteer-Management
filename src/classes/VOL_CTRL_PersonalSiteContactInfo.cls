@@ -172,7 +172,7 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
 		        	strComma = ', ';
 		        }
 		        strSoql += ' from Volunteer_Hours__c where Contact__c = :contactId ';
-		        strSoql += ' and Status__c <> \'Canceled\' ';
+		        strSoql += ' and Status__c <> \'Cancelled\' ';
 		        Date dtToday = system.today();
 		        strSoql += ' and Shift_Start_Date_Time__c >= :dtToday ';
 		        strSoql += ' order by Shift_Start_Date_Time__c ASC ';        
@@ -255,7 +255,7 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
 	global PageReference cancelShift() {
 		if (hoursId != null) {           
 			Volunteer_Hours__c hr = [select Id, Status__c, Hours_Worked__c from Volunteer_Hours__c where Id = :hoursId];
-			hr.Status__c = 'Canceled';
+			hr.Status__c = 'Cancelled';
 			hr.Hours_Worked__c = 0;
 			update hr;
 			hoursId = null; 
@@ -421,7 +421,7 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
         // CancelShift
         ctrl.hoursId = listHours[0].Id;
         ctrl.cancelShift();
-        listHours = [select Id, Status__c from Volunteer_Hours__c where Contact__c = :contact.Id and Status__c = 'Canceled'];
+        listHours = [select Id, Status__c from Volunteer_Hours__c where Contact__c = :contact.Id and Status__c = 'Cancelled'];
         system.assertEquals(1, listHours.size());
         
     }

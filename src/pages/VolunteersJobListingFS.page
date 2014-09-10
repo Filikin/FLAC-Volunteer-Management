@@ -155,55 +155,15 @@
 <div id="dlgSignUp" title="{!$Label.labelTitleJobSignup}">
     <apex:form styleClass="cssForm" id="frmSignUp" > 
         <apex:outputPanel id="panelSignUp" > 
-			<table columns="2" >
-				<!-- first we specify the fields we require for Contact matching -->
-				<tr>
-		            <td class="cssLabelsColumn" ><apex:outputLabel value="{!$ObjectType.Contact.Fields.FirstName.Label + '*'}" for="txtFirstName" /></td>
-	    	        <td class="cssInputFieldsColumn" ><apex:inputField value="{!contact.FirstName}" id="txtFirstName" required="true" styleClass="cssInputFields" /></td>
-	        	</tr>
-	        	<tr>    
-	            	<td class="cssLabelsColumn" ><apex:outputLabel value="{!$ObjectType.Contact.Fields.LastName.Label + '*'}" for="txtLastName" /></td>
-	            	<td class="cssInputFieldsColumn" ><apex:inputField value="{!contact.LastName}" id="txtLastName" required="true" styleClass="cssInputFields" /></td>
-	            </tr>
-	            <tr>            
-	            	<td class="cssLabelsColumn" ><apex:outputLabel value="{!$ObjectType.Contact.Fields.Email.Label + '*'}" for="txtEmail" /></td>
-	            	<td class="cssInputFieldsColumn" ><apex:inputField value="{!contact.Email}" id="txtEmail" required="true" styleClass="cssInputFields" /></td>
-				</tr>
-				
-				<!--  now add optional fields the user can specify for Contacts -->
-				<apex:repeat value="{!$ObjectType.Contact.FieldSets.VolunteersJobListingFS}" var="f" >
-					<tr>
-						<td class="cssLabelsColumn" ><apex:outputLabel value="{!f.Label + IF(OR(f.DBRequired, f.Required), '*', '')}" /></td>
-	   					<td class="cssInputFieldsColumn" ><apex:inputField value="{!Contact[f]}" required="{!IF(OR(f.DBRequired, f.Required), 'true', 'false')}"
-	   						styleClass="{!IF(f.Type == 'Long Text Area', 'cssInputFields cssTextArea', 'cssInputFields')}" /></td>
-	   				</tr>
-	  			</apex:repeat>        
-        
-				<!--  now add optional fields the user can specify for VolunteerHours -->
-				<apex:repeat value="{!$ObjectType.Volunteer_Hours__c.FieldSets.VolunteersJobListingFS}" var="f" >
-					<tr>
-						<td class="cssLabelsColumn" ><apex:outputLabel value="{!f.Label + IF(OR(f.DBRequired, f.Required), '*', '')}" /></td>
-	   					<td class="cssInputFieldsColumn" ><apex:inputField value="{!vhours[f]}" required="{!IF(OR(f.DBRequired, f.Required), 'true', 'false')}"
-	   						styleClass="{!IF(f.Type == 'Long Text Area', 'cssInputFields cssTextArea', 'cssInputFields')}" /></td>
-	   				</tr>
-	  			</apex:repeat>
-	  			
-      			<!-- add optional File Upload -->
-	            <tr>            
-	            	<td class="cssLabelsColumn" ><apex:outputLabel value="{!strFileUploadLabel}" for="txtFileUpload" /></td>
-	            	<td class="cssInputFieldsColumn" ><apex:inputFile styleClass="cssInputFields" rendered="{!strFileUploadLabel!=null}" value="{!attachment.body}" filename="{!attachment.name}" id="txtFileUpload" /></td>
-				</tr>	  			        
-			</table>                             
         	<apex:Messages style="color:red;" />       
             <p>         
+            <apex:outputText value="You are signing up for:" id="txtJobDisplayTitle" styleClass="cssSignupDisplayName" style="border-style:none; background-color:transparent; width:100%;" /><br/><br/>
             <apex:outputText value="{!strJobDisplayName}" id="txtJobDisplayName" styleClass="cssSignupDisplayName" style="border-style:none; background-color:transparent; width:100%;" /><br/>
-            <apex:outputText value="{!strShiftDisplayName}" id="txtShiftDisplayName" styleClass="cssSignupDisplayName" style="border-style:none; background-color:transparent; width:100%;" /><br/>
+            <apex:outputText value="{!strShiftDisplayName}" id="txtShiftDisplayName" styleClass="cssSignupDisplayName" style="border-style:none; background-color:transparent; width:100%;" /><br/><br/>
+			<apex:outputText value="Please click on the 'Sign Up button to confirm" id="txtJobDisplayConfirm" styleClass="cssSignupDisplayName" style="border-style:none; background-color:transparent; width:100%;" /><br/>
             </p>
             
-            <!-- before calling the action method, clear the return value fields so we can detect validation failures. -->                          
             <apex:commandButton value="{!$Label.labelButtonSignUp}" onclick="
-                    j$('input[name$=txtContactIdSignUp]').val(''); 
-                    j$('input[name$=txtVHIdSignUp]').val('');
                		VolunteerShiftSignUp();
                     return false;" 
                 immediate="false" status="statusSignUp" styleClass="cssButton btn" />              

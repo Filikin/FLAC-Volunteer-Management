@@ -17,7 +17,7 @@
     <masterLabel>Volunteers</masterLabel>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <siteAdmin>flac@enclude.ie</siteAdmin>
-    <siteTemplate>SiteTemplate</siteTemplate>
+    <siteTemplate>PersonalSiteTemplate</siteTemplate>
     <siteType>Visualforce</siteType>
     <subdomain>flac</subdomain>
 </CustomSite>

@@ -48,7 +48,7 @@
 	                            </apex:repeat>   
 	
 	                            <apex:outputPanel layout="block" styleClass="cssPersonalSiteButtons " >
-	                                <apex:commandButton value="{!$Label.labelButtonEdit}" status="statusLoad" action="{!edit}" rendered="{!NOT(isEditing)}" immediate="true" rerender="pbRelatedLists" styleclass="btn" />
+	                                <apex:commandButton value="{!$Label.labelButtonEdit}" status="statusLoad" action="{!edit}" rendered="false" immediate="true" rerender="pbRelatedLists" styleclass="btn" />
 	                                <apex:commandButton value="{!$Label.labelButtonSave}" status="statusLoad" action="{!save}" rendered="{!isEditing}" immediate="false" styleclass="btn" />
 	                                <apex:commandButton value="{!$Label.labelButtonCancel}" status="statusLoad" action="{!cancel}" rendered="{!isEditing}" immediate="true" styleclass="btn" />
 	                            </apex:outputPanel> 

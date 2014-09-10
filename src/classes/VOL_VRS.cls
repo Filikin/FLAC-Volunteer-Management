@@ -31,7 +31,7 @@ public with sharing class VOL_VRS {
 		list<Volunteer_Hours__c> listHours = new list<Volunteer_Hours__c>();
 		if (fPreserveCanceled) {
 			listHours = [select Id from Volunteer_Hours__c  
-				where (Status__c <> 'Completed' and Status__c <> 'Canceled' and
+				where (Status__c <> 'Completed' and Status__c <> 'Cancelled' and
 					Volunteer_Recurrence_Schedule__c in : setVRSId)];
 		} else {
 			listHours = [select Id from Volunteer_Hours__c  

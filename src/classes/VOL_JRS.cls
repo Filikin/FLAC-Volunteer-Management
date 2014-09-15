@@ -37,7 +37,7 @@ public with sharing class VOL_JRS {
 	// which case we should review all shifts under the JRS, or from the scheduled batch,
 	// in which case we only need to be looking to add additional shifts in the future.
 	public static void ProcessListJRS(list<Job_Recurrence_Schedule__c> listJRS, boolean fReviewAllShifts) {
-		
+
 		// get a set of the JRS ID's for querying
 		set<ID> setJRSId = new set<ID>();
 		for (Job_Recurrence_Schedule__c jrs : listJRS) {
@@ -61,7 +61,7 @@ public with sharing class VOL_JRS {
 			listJRSShift.add(shift);
 			mapJRSIdShift.put(shift.Job_Recurrence_Schedule__c, listJRSShift);				
 		}
-
+		
 		// lists to hold all the shifts we need to create, delete, and update
 		list<Volunteer_Shift__c> listShiftNew = new list<Volunteer_Shift__c>();
 		list<Volunteer_Shift__c> listShiftDelete = new list<Volunteer_Shift__c>();
@@ -127,7 +127,7 @@ public with sharing class VOL_JRS {
 		list<Volunteer_Shift__c> listShiftDelete,
 		list<Volunteer_Shift__c> listShiftUpdate,
 		boolean fReviewAllShifts ) {
-	
+
 		// assume custom setting to specify how far into future shifts should populate to.
 		Date dtStop = system.today();
 		integer nMonths = 12;
@@ -162,7 +162,7 @@ public with sharing class VOL_JRS {
 			if (dtLast == null || dtLast > dtStop) 
 				break;
 			
-			// see if we already have a shift for that date
+		// see if we already have a shift for that date
 			Volunteer_Shift__c shiftExisting = mapDtShift.get(dtLast);
 			
 			// if we have the shift, update its Job, time and duration
@@ -215,7 +215,7 @@ public with sharing class VOL_JRS {
 		Date dtFirst = dtFirstOccurrenceInWeek(jrs, dt);
 		boolean fAlternate = true;	// we assume the first date passed in is a valid week.
 		boolean fValidWeek = validWeek(jrs, dtFirst, fAlternate);  // remember if current date is on valid week.
-		
+
 		// if we aren't on a valid week we want to skip to the first nday of the next week.		
 		if (!fValidWeek) {
 			dt = dtFirst.addDays(6);
@@ -224,7 +224,9 @@ public with sharing class VOL_JRS {
 		integer nDay = nDayOfWeek(dt);
 		list<boolean> listWhichDays = WhichDaysJRS(jrs);
 		
-		for (integer n = nDay; true; ) {
+		// EK 12/9/2014 this loop needs a guard just in case all listWhichDays are false
+		integer loopCount=9;
+		for (integer n = nDay; loopCount>0; loopCount--) {
 			n++;
 			dt = dt.addDays(1);
 			

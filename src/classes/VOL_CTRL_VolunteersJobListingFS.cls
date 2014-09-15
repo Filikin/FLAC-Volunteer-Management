@@ -94,7 +94,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
         ShowDescription = true;
         ShowLocationAddress = true;
         ShowLocationInfo = true;
-        ShowSkills = false;
+        ShowSkills = true;
         ShowShifts = true;
         strLanguage = 'en-us'; 
         strDateFormat = 'EEEE d/M/yyyy';
@@ -161,9 +161,9 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
     // The list of Volunteer Jobs.
     global list<Volunteer_Job__c> listVolunteerJobs { 
         get {
-        	system.debug ('In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
             if (listVolunteerJobs == null) {
-                        
+         	system.debug ('In listVolunteerJobs, campaignIdFilter is ' + campaignIdFilter);
+                       
                 listVolunteerJobs = new list<Volunteer_Job__c>();
                 DateTime dtNow = dtMonthFilter.toStartOfMonth();
                 if (dtNow < system.Now()) dtNow = system.Now().Date();
@@ -171,8 +171,12 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                 // eg. date(8/1/2013) gave 7/30/2013 but dateGMT(8/1/2013) gave 8/1/2013.
                 DateTime dtLast = dtNow.addMonths(nMonthsToShow).dateGMT().toStartOfMonth();
                 
-         	system.debug ('1. In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
-                if (jobIdFilter != null) {
+	            Cookie cId = ApexPages.currentPage().getCookies().get('contactIdPersonalSite');
+	            ID contactIdPersonalSite = null;
+	            if (cId != null) contactIdPersonalSite = cId.getValue();
+	            
+                if (jobIdFilter != null) 
+                {
                     listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
                         Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
                         Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
@@ -182,31 +186,12 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                             order by Start_Date_Time__c) 
                         from Volunteer_Job__c where Id = :jobIdFilter  
                         order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
-                } else if (campaignIdFilter != null) 
+                } 
+                else if (campaignIdFilter != null) 
                 {
-        	system.debug ('2. In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
                 	if (campaignIdFilter == MY_CENTRES) // get the list of centres associated with the current volunteer
 			        {
-        	system.debug ('3. In listVolunteerJobs, Campaign filter is: ' + campaignIdFilter);
-			            Cookie cId = ApexPages.currentPage().getCookies().get('contactIdPersonalSite');
-			            ID contactIdPersonalSite = null;
-			            if (cId != null) contactIdPersonalSite = cId.getValue();
-		 	        	if (contactIdPersonalSite != null)
-			        	{
-				    		map <id, Volunteer_Job__c> vJobsMap = new map <id, Volunteer_Job__c>(VOL_CTRL_JobCalendar.getJobsFromMyCentresForMySkills (contactIdPersonalSite)); // Error handling - check that strContactId is not null or blank
-		                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
-		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
-		                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
-		                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
-		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
-		                            order by Start_Date_Time__c) 
-		                        from Volunteer_Job__c where ID in :vJobsMap.KeySet() and Display_on_Website__c = true 
-		                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
-			        	}
-			        } 
-                	else
-                	{
+			    		map <id, Volunteer_Job__c> vJobsMap = new map <id, Volunteer_Job__c>(VOL_CTRL_JobCalendar.getJobsFromMyCentresForMySkills (contactIdPersonalSite)); // Error handling - check that strContactId is not null or blank
 	                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
 	                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
 	                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
@@ -214,20 +199,81 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 	                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
 	                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 	                            order by Start_Date_Time__c) 
-	                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
+	                        from Volunteer_Job__c where ID in :vJobsMap.KeySet() and Display_on_Website__c = true 
+	                        	and Number_of_Volunteers_Still_Needed__c > 0
 	                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
+			        } 
+                	else
+                	{
+		 				Contact volunteer = [select Volunteer_Skills__c from Contact where id=:contactIdPersonalSite limit 1];
+		 				if (volunteer != null)
+		 				{
+		 					if (volunteer.Volunteer_Skills__c == 'Receptionist')
+		 					{
+			                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
+			                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
+			                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
+			                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+			                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+			                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
+			                            order by Start_Date_Time__c) 
+			                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
+										and (Skills_Needed__c = :volunteer.Volunteer_Skills__c or Skills_Needed__c = :ASSISTANT_SKILL)
+										and Number_of_Volunteers_Still_Needed__c > 0
+			                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
+		 					}
+		 					else
+		 					{
+			                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
+			                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
+			                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
+			                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+			                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+			                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
+			                            order by Start_Date_Time__c) 
+			                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
+										and Skills_Needed__c = :volunteer.Volunteer_Skills__c
+										and Number_of_Volunteers_Still_Needed__c > 0
+			                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
+		 					}
+		 				}
                 	}
-                } else {
-                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
-                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
-                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
-                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
-                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
-                            order by Start_Date_Time__c LIMIT 100) 
-                        from Volunteer_Job__c where Campaign__r.IsActive = true and Display_on_Website__c = true 
-                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name LIMIT 999];
-                }
+                } 
+                else 
+                {
+		 			Contact volunteer = [select Volunteer_Skills__c from Contact where id=:contactIdPersonalSite limit 1];
+		 			if (volunteer != null)
+		 			{
+		 				if (volunteer.Volunteer_Skills__c == 'Receptionist')
+		 				{
+		                  listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
+		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
+		                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
+		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+		                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
+		                            order by Start_Date_Time__c LIMIT 100) 
+		                        from Volunteer_Job__c where Campaign__r.IsActive = true and Display_on_Website__c = true 
+									and (Skills_Needed__c = :volunteer.Volunteer_Skills__c or Skills_Needed__c = :ASSISTANT_SKILL)
+									and Number_of_Volunteers_Still_Needed__c > 0
+		                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name LIMIT 999];
+		 				}
+		 				else
+		 				{
+		                  listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
+		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
+		                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
+		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+		                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
+		                            order by Start_Date_Time__c LIMIT 100) 
+		                        from Volunteer_Job__c where Campaign__r.IsActive = true and Display_on_Website__c = true 
+									and Skills_Needed__c = :volunteer.Volunteer_Skills__c
+									and Number_of_Volunteers_Still_Needed__c > 0
+		                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name LIMIT 999];
+		 				}
+		 			}
+                  }
                 
                 // now remove any jobs whose shifts are all past date.
                 for (integer i = listVolunteerJobs.size() - 1; i >= 0; i--) {
@@ -454,6 +500,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 // EK 10/9/2014 adding support for a drop down list of campaigns (centres)
     // holds the currently selected Campaign in the Campaign dropdown
 	public static final String MY_CENTRES = 'MyCentres';
+	public static final String ASSISTANT_SKILL = 'Assistant';
 
     // the list of active Volunteer Campaigns -- change to list of centres
     global list<SelectOption> listSOCampaigns {
@@ -461,8 +508,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
         {
             list<SelectOption> listSO = new list<SelectOption>();
            	listSO.add(new SelectOption(MY_CENTRES, system.label.labelMyCentres));
-            campaignIdFilter =  MY_CENTRES;
-			listSO.add(new SelectOption('', system.label.labelChoiceAllCentres));
+ 			listSO.add(new SelectOption('', system.label.labelChoiceAllCentres));
         	for (Campaign c : [select Name, Id, StartDate from Campaign 
             	where RecordTypeId = :VOL_SharedCode.recordtypeIdVolunteersCampaign 
             	and IsActive = true order by Name asc limit 999]) {
@@ -475,7 +521,6 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
     
     // the user has changed the Campaign dropdown
     global virtual PageReference ChangeCampaign() {
-    	system.debug ('In ChangeCampaign, CampaignIdFilter is ' + CampaignIdFilter);
         // clear out all state that is specific to the campaign
         listVolunteerJobs = null;
         return null;

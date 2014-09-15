@@ -106,6 +106,7 @@
     </fields>
     <fields>
         <fullName>Desired_Number_of_Volunteers__c</fullName>
+        <defaultValue>1</defaultValue>
         <externalId>false</externalId>
         <label>Desired Number of Volunteers</label>
         <precision>6</precision>

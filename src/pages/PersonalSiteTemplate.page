@@ -28,7 +28,7 @@
 	        </div>
 	        <div class="navbar-inner" style="padding:0 20px;">	            
 	            <ul class="nav">
-	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteJobListing', 'active', '')}"><a href="{!$Page.PersonalSiteJobListing + '?nMonthsToShow=1'}" >Volunteer Job Listing</a></li>
+	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteJobListing', 'active', '')}"><a href="{!$Page.PersonalSiteJobListing + '?nMonthsToShow=4&showSkills=1'}" >Volunteer Job Listing</a></li>
 	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteJobCalendar', 'active', '')}"><a href="{!$Page.PersonalSiteJobCalendar + '?nMonthsToShow=1'}" >Volunteer Job Calendar</a></li>
 	                <li class="{!IF($CurrentPage.Name == 'PersonalSiteContactInfo', 'active', '')}"><a href="{!$Page.PersonalSiteContactInfo}" >View your information</a></li>
 	            </ul>

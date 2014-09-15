@@ -28,7 +28,7 @@
             <apex:inputField value="{!contact.Department}" id="txtCompany" required="false" styleClass="cssInputFields" />
             
             <apex:outputLabel value="Skills" for="lbxSkills" ></apex:outputLabel>
-            <apex:inputField value="{!contact.Volunteer_Skills__c}" id="lbxSkills" styleClass="cssInputFields" />
+            <apex:inputField value="{!contact.Main_job_in_FLAC_Centre__c}" id="lbxSkills" styleClass="cssInputFields" />
             
             <apex:outputLabel value="Availability" for="lbxAvailability" ></apex:outputLabel>
             <apex:inputField value="{!contact.Volunteer_Availability__c}" id="lbxAvailability" styleClass="cssInputFields" />

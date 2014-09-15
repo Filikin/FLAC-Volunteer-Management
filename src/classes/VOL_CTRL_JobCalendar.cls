@@ -249,7 +249,7 @@ global with sharing class VOL_CTRL_JobCalendar
 	{
 		if (contactId != null)
 		{
-			String skill = [select Volunteer_Skills__c from Contact where id=:contactId].Volunteer_Skills__c;
+			String skill = [select Main_job_in_FLAC_Centre__c from Contact where id=:contactId].Main_job_in_FLAC_Centre__c;
 			list <Volunteer_for_Centre__c> vcs = [select FLAC_Centre__c from Volunteer_for_Centre__c where Volunteer__c=:contactId];
 			set <ID> centreIDs = new set <ID>();
 	    	for (Volunteer_for_Centre__c oneVC: vcs)
@@ -340,10 +340,10 @@ global with sharing class VOL_CTRL_JobCalendar
     		}
     		else
     		{
- 				Contact volunteer = [select Volunteer_Skills__c from Contact where id=:strContactID limit 1];
+ 				Contact volunteer = [select Main_job_in_FLAC_Centre__c from Contact where id=:strContactID limit 1];
  				if (volunteer != null)
  				{
- 					if (volunteer.Volunteer_Skills__c == 'Receptionist')
+ 					if (volunteer.Main_job_in_FLAC_Centre__c == 'Receptionist')
 	 			   	{
 		 				listShifts = [select Id, Name, Volunteer_Job__c, Volunteer_Job__r.Name, Volunteer_Job__r.Volunteer_Website_Time_Zone__c,Volunteer_Job__r.Campaign__r.Volunteer_Website_Time_Zone__c,
 							Volunteer_Job__r.Campaign__c, Start_Date_Time__c, Duration__c,
@@ -352,7 +352,7 @@ global with sharing class VOL_CTRL_JobCalendar
 							where Start_Date_Time__c >= :dtStart and Start_Date_Time__c <= :dtEnd
 								and Volunteer_Job__r.Campaign__r.IsActive = true
 								and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
-								and (Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c or Volunteer_Job__r.Skills_Needed__c = :ASSISTANT_SKILL)
+								and (Volunteer_Job__r.Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c or Volunteer_Job__r.Skills_Needed__c = :ASSISTANT_SKILL)
 								and Number_of_Volunteers_Still_Needed__c > 0
 							order by Start_Date_Time__c asc];
 	 			   	}
@@ -365,7 +365,7 @@ global with sharing class VOL_CTRL_JobCalendar
 							where Start_Date_Time__c >= :dtStart and Start_Date_Time__c <= :dtEnd
 								and Volunteer_Job__r.Campaign__r.IsActive = true
 								and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
-								and Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c
+								and Volunteer_Job__r.Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c
 								and Number_of_Volunteers_Still_Needed__c > 0
 							order by Start_Date_Time__c asc];
 	 			   	}	 			   		
@@ -387,10 +387,10 @@ global with sharing class VOL_CTRL_JobCalendar
     		}
     		else
     		{
- 				Contact volunteer = [select Volunteer_Skills__c from Contact where id=:strContactID limit 1];
+ 				Contact volunteer = [select Main_job_in_FLAC_Centre__c from Contact where id=:strContactID limit 1];
  				if (volunteer != null)
  				{
- 					if (volunteer.Volunteer_Skills__c == 'Receptionist')
+ 					if (volunteer.Main_job_in_FLAC_Centre__c == 'Receptionist')
 	 			   	{
 						listShifts = [select Id, Name, Volunteer_Job__c, Volunteer_Job__r.Name, Volunteer_Job__r.Volunteer_Website_Time_Zone__c,Volunteer_Job__r.Campaign__r.Volunteer_Website_Time_Zone__c,
 						Volunteer_Job__r.Campaign__c, Start_Date_Time__c, Duration__c,
@@ -399,7 +399,7 @@ global with sharing class VOL_CTRL_JobCalendar
 						where Start_Date_Time__c >= :dtStart and Start_Date_Time__c <= :dtEnd
 							and Volunteer_Job__r.Campaign__c = :strCampaignId
 							and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
-							and (Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c or Volunteer_Job__r.Skills_Needed__c = :ASSISTANT_SKILL)
+							and (Volunteer_Job__r.Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c or Volunteer_Job__r.Skills_Needed__c = :ASSISTANT_SKILL)
 							and Number_of_Volunteers_Still_Needed__c > 0
 						order by Start_Date_Time__c asc];
 	 			   	}
@@ -412,7 +412,7 @@ global with sharing class VOL_CTRL_JobCalendar
 						where Start_Date_Time__c >= :dtStart and Start_Date_Time__c <= :dtEnd
 							and Volunteer_Job__r.Campaign__c = :strCampaignId
 							and (Volunteer_Job__r.Display_On_Website__c = true or Volunteer_Job__r.Display_On_Website__c = :fWeb)
-							and Volunteer_Job__r.Skills_Needed__c = :volunteer.Volunteer_Skills__c
+							and Volunteer_Job__r.Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c
 						and Number_of_Volunteers_Still_Needed__c > 0
 						order by Start_Date_Time__c asc];
 	 			   	}

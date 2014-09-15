@@ -156,7 +156,7 @@ global with sharing class VOL_SharedCode {
         // let's see if we can find any matching Contacts.
         list<Contact> listCon = [select Id, Lastname, Firstname, Email, Phone, HomePhone,
         		Volunteer_Availability__c, Volunteer_Notes__c, Volunteer_Last_Web_Signup_Date__c, 
-        		Volunteer_Status__c, Volunteer_Skills__c, Volunteer_Organization__c from Contact 
+        		Volunteer_Status__c, Main_job_in_FLAC_Centre__c, Volunteer_Organization__c from Contact 
                 where Lastname=:contact.Lastname and Firstname=:contact.Firstname and Email=:contact.Email];
 
         // if we can match existing contacts, and we found a match, update them.                        
@@ -169,7 +169,7 @@ global with sharing class VOL_SharedCode {
                 if (contact.Volunteer_Notes__c != null) {
                     con.Volunteer_Notes__c = strNotes + '[' + string.valueof(System.today()) + ']: ' + contact.Volunteer_Notes__c;
                 }                   
-                con.Volunteer_Skills__c = contact.Volunteer_Skills__c;
+                con.Main_job_in_FLAC_Centre__c = contact.Main_job_in_FLAC_Centre__c;
                 if (con.Volunteer_Status__c == null) con.Volunteer_Status__c = 'New Sign Up';
                 if (contact.Phone != null) con.Phone = contact.Phone;
                 if (contact.HomePhone != null) con.HomePhone = contact.HomePhone; 
@@ -211,7 +211,7 @@ global with sharing class VOL_SharedCode {
             lead.MobilePhone = contact.HomePhone; // leads don't have a home phone!
             lead.Volunteer_Availability__c = contact.Volunteer_Availability__c;
             lead.Volunteer_Notes__c = contact.Volunteer_Notes__c;
-            lead.Volunteer_Skills__c = contact.Volunteer_Skills__c;
+            lead.Volunteer_Skills__c = contact.Main_job_in_FLAC_Centre__c;
             lead.Volunteer_Status__c = 'New Sign Up';
             lead.LeadSource = 'Web Volunteer Signup';
             insert lead;      

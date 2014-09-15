@@ -122,7 +122,7 @@
             <p><apex:outputText value="{!job.Name}" styleClass="cssJobName" rendered="{!ShowJobName}"/></p>
             <apex:outputField value="{!job.Description__c}" rendered="{!ShowDescription}"/>
             <apex:outputPanel rendered="{!ShowSkills && job.Skills_Needed__c <> null}" >
-	            <p class="cssJobSkills" >{!$ObjectType.Contact.Fields.Volunteer_Skills__c.Label}:&nbsp;&nbsp;
+	            <p class="cssJobSkills" >{!$ObjectType.Contact.Fields.Main_job_in_FLAC_Centre__c.Label}:&nbsp;&nbsp;
 	            <apex:outputText value="{!job.Skills_Needed__c}" />
 	            </p>  
 	        </apex:outputPanel>

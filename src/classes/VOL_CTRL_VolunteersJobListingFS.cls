@@ -205,10 +205,10 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 			        } 
                 	else
                 	{
-		 				Contact volunteer = [select Volunteer_Skills__c from Contact where id=:contactIdPersonalSite limit 1];
+		 				Contact volunteer = [select Main_job_in_FLAC_Centre__c from Contact where id=:contactIdPersonalSite limit 1];
 		 				if (volunteer != null)
 		 				{
-		 					if (volunteer.Volunteer_Skills__c == 'Receptionist')
+		 					if (volunteer.Main_job_in_FLAC_Centre__c == 'Receptionist')
 		 					{
 			                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
 			                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
@@ -218,7 +218,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 			                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 			                            order by Start_Date_Time__c) 
 			                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
-										and (Skills_Needed__c = :volunteer.Volunteer_Skills__c or Skills_Needed__c = :ASSISTANT_SKILL)
+										and (Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c or Skills_Needed__c = :ASSISTANT_SKILL)
 										and Number_of_Volunteers_Still_Needed__c > 0
 			                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
 		 					}
@@ -232,7 +232,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 			                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 			                            order by Start_Date_Time__c) 
 			                        from Volunteer_Job__c where Campaign__c = :campaignIdFilter and Display_on_Website__c = true 
-										and Skills_Needed__c = :volunteer.Volunteer_Skills__c
+										and Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c
 										and Number_of_Volunteers_Still_Needed__c > 0
 			                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name];
 		 					}
@@ -241,10 +241,10 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                 } 
                 else 
                 {
-		 			Contact volunteer = [select Volunteer_Skills__c from Contact where id=:contactIdPersonalSite limit 1];
+		 			Contact volunteer = [select Main_job_in_FLAC_Centre__c from Contact where id=:contactIdPersonalSite limit 1];
 		 			if (volunteer != null)
 		 			{
-		 				if (volunteer.Volunteer_Skills__c == 'Receptionist')
+		 				if (volunteer.Main_job_in_FLAC_Centre__c == 'Receptionist')
 		 				{
 		                  listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
 		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
@@ -254,7 +254,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 		                            order by Start_Date_Time__c LIMIT 100) 
 		                        from Volunteer_Job__c where Campaign__r.IsActive = true and Display_on_Website__c = true 
-									and (Skills_Needed__c = :volunteer.Volunteer_Skills__c or Skills_Needed__c = :ASSISTANT_SKILL)
+									and (Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c or Skills_Needed__c = :ASSISTANT_SKILL)
 									and Number_of_Volunteers_Still_Needed__c > 0
 		                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name LIMIT 999];
 		 				}
@@ -268,7 +268,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 		                            order by Start_Date_Time__c LIMIT 100) 
 		                        from Volunteer_Job__c where Campaign__r.IsActive = true and Display_on_Website__c = true 
-									and Skills_Needed__c = :volunteer.Volunteer_Skills__c
+									and Skills_Needed__c = :volunteer.Main_job_in_FLAC_Centre__c
 									and Number_of_Volunteers_Still_Needed__c > 0
 		                        order by First_Shift__c, Campaign__r.StartDate, Campaign__r.Name, Name LIMIT 999];
 		 				}

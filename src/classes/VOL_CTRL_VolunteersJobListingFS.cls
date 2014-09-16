@@ -24,7 +24,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
     global string strParams { get; set; }
     global integer nMonthsToShow { get; set; }
     global date dtMonthFilter { get; set; }
-    
+    global string strContactID {get; set;}
     
     // contact record to bind the Contact SignUp form to.
     global Contact contact { 
@@ -35,7 +35,8 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                 // when used within the Personal Site, we should use the appropriate Contact
                 Cookie cId = ApexPages.currentPage().getCookies().get('contactIdPersonalSite');
                 if (cId != null) contactIdSignUp = cId.getValue();
-                if (contactIdSignUp != null && contactIdSignUp != '') {
+                if (contactIdSignUp != null && contactIdSignUp != '') 
+                {
                     VOL_SharedCode.LoadAndCopyObject(contactIdSignUp, contact);                 
                 }
             }
@@ -173,14 +174,18 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
                 
 	            Cookie cId = ApexPages.currentPage().getCookies().get('contactIdPersonalSite');
 	            ID contactIdPersonalSite = null;
-	            if (cId != null) contactIdPersonalSite = cId.getValue();
+	            if (cId != null) 
+	            {
+	            	contactIdPersonalSite = cId.getValue();
+	            	strContactID = cId.getValue();
+	            }
 	            
                 if (jobIdFilter != null) 
                 {
                     listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
                         Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
                         Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c, VolunteerIDs__c,
                             Description__c, System_Note__c From Volunteer_Job_Slots__r 
                             where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
                             order by Start_Date_Time__c) 
@@ -196,7 +201,8 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 	                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
 	                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
 	                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
-	                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
+	                            Description__c, System_Note__c,
+	                            VolunteerIDs__c From Volunteer_Job_Slots__r 
 	                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 	                            order by Start_Date_Time__c) 
 	                        from Volunteer_Job__c where ID in :vJobsMap.KeySet() and Display_on_Website__c = true 
@@ -213,7 +219,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 			                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
 			                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
 			                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-			                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+			                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c, VolunteerIDs__c,
 			                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
 			                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 			                            order by Start_Date_Time__c) 
@@ -227,7 +233,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 			                    listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c, 
 			                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
 			                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-			                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+			                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c, VolunteerIDs__c,
 			                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
 			                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 			                            order by Start_Date_Time__c) 
@@ -249,7 +255,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 		                  listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
 		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
 		                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c, VolunteerIDs__c,
 		                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
 		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 		                            order by Start_Date_Time__c LIMIT 100) 
@@ -263,7 +269,7 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
 		                  listVolunteerJobs = [select Id, Name, Campaign__c, Campaign__r.IsActive, Campaign__r.Name, Campaign__r.StartDate, Campaign__r.Volunteer_Website_Time_Zone__c,
 		                        Description__c, Location_Information__c, Number_of_Shifts__c, Skills_Needed__c, Volunteer_Website_Time_Zone__c,
 		                        Location_Street__c, Location_City__c, Location__c, Location_Zip_Postal_Code__c,
-		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c,
+		                        (Select Id, Start_Date_Time__c, Duration__c, Number_of_Volunteers_Still_Needed__c, VolunteerIDs__c,
 		                            Description__c, System_Note__c From Volunteer_Job_Slots__r 
 		                            where Start_Date_Time__c >= :dtNow and Start_Date_Time__c < :dtLast
 		                            order by Start_Date_Time__c LIMIT 100) 

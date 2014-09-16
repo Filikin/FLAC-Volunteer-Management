@@ -66,7 +66,7 @@ trigger VOL_VolunteerHours_AddToCampaign on Volunteer_Hours__c (after insert, af
 			}
 
 			// keep track of the active volunteers
-			if (hr.Status__c == 'Confirmed' || hr.Status__c == 'Completed') {
+			if (hr.Status__c != 'Cancelled' && hr.Status__c != 'No-Show') {
 				setContactIdMarkActive.add(hr.Contact__c);
 			}
 

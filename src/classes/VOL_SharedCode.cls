@@ -438,12 +438,14 @@ global with sharing class VOL_SharedCode {
 		// WARNING: deleting, undeleting, or merging a Contact, does NOT call any trigger on the Hours!
 		// thus I've manually called this from the before delete & after undelete trigger on Contacts (VOL_Contact_MaintainHours).
 		
+		// EK 16/09/2014 want to keep a list of ID of the hours in the shift so that I can indicate which jobs the volunteer has signed up for
+		
 		map<Id, Double> mpShiftIdDelta = new map<Id, Double>();
 		
 		// first we go through the new hours, and add up the number of volunteers per shift
 		if (listHoursNew != null) {
 			for (Volunteer_Hours__c hr : listHoursNew) {
-				if ((hr.Status__c == 'Confirmed' || hr.Status__c == 'Completed') &&
+				if ((hr.Status__c != 'Cancelled' && hr.Status__c != 'No-Show') &&
 					(hr.Volunteer_Shift__c <> null && hr.Number_Of_Volunteers__c != null)) {
 						Double numVols = mpShiftIdDelta.get(hr.Volunteer_Shift__c);
 						if (numVols == null) numVols = 0;
@@ -456,7 +458,7 @@ global with sharing class VOL_SharedCode {
 		// second we go through the old hours, and subtract the number of volunteers per shift		
 		if (listHoursOld != null) {
 			for (Volunteer_Hours__c hr : listHoursOld) {
-				if ((hr.Status__c == 'Confirmed' || hr.Status__c == 'Completed') &&
+				if ((hr.Status__c != 'Cancelled' && hr.Status__c != 'No-Show') &&
 					(hr.Volunteer_Shift__c <> null && hr.Number_Of_Volunteers__c != null)) {
 						Double numVols = mpShiftIdDelta.get(hr.Volunteer_Shift__c);
 						if (numVols == null) numVols = 0;
@@ -472,13 +474,20 @@ global with sharing class VOL_SharedCode {
 			
 		// now that we have the Id's of the shifts, let's get them from the database, update them by the number of volunteers, and then commit.
 		list<Volunteer_Shift__c> listShifts = new list<Volunteer_Shift__c>();
-		listShifts = [select Id, Total_Volunteers__c from Volunteer_Shift__c where Id in :mpShiftIdDelta.keySet()];
+		listShifts = [select Id, Total_Volunteers__c, VolunteerIDs__c, (select Contact__c from Volunteer_Hours__r where Status__c != 'Cancelled' and Status__c != 'No-Show') from Volunteer_Shift__c where Id in :mpShiftIdDelta.keySet()];
 		
 		// loop through and update them
 		for (Volunteer_Shift__c shift : listShifts) {
 			Double numVols = shift.Total_Volunteers__c;
 			if (numVols == null || resetTotals) numVols = 0;
 			shift.Total_Volunteers__c = numVols + mpShiftIdDelta.get(shift.Id);
+			
+			// want to accumulate the IDs of the volunteers in the shifts
+			shift.VolunteerIDs__c = '';
+			for (Volunteer_Hours__c oneHour: shift.Volunteer_Hours__r)
+			{
+				shift.VolunteerIDs__c += oneHour.Contact__c + ',';
+			}
 		}
 		update listShifts;
 	}

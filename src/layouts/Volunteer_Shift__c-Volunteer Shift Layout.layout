@@ -39,6 +39,10 @@
                 <behavior>Readonly</behavior>
                 <field>Number_of_Volunteers_Still_Needed__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VolunteerIDs__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>

@@ -200,10 +200,6 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Prospect</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Confirmed</fullName>
                 <default>false</default>
             </picklistValues>
@@ -216,11 +212,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Web Sign Up</fullName>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Canceled</fullName>
+                <fullName>Second confirmation sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Second confirmation received</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

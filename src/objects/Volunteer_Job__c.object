@@ -78,7 +78,7 @@
     </fields>
     <fields>
         <fullName>Display_on_Website__c</fullName>
-        <defaultValue>false</defaultValue>
+        <defaultValue>true</defaultValue>
         <externalId>false</externalId>
         <inlineHelpText>Check this field if this Volunteer Job should be included in the Available Volunteer Jobs Sites page.</inlineHelpText>
         <label>Display on Website</label>
@@ -207,8 +207,10 @@
     </fields>
     <fields>
         <fullName>Ongoing__c</fullName>
-        <defaultValue>false</defaultValue>
+        <defaultValue>true</defaultValue>
         <externalId>false</externalId>
+        <inlineHelpText>Check this box if this Job is for an ongoing need, such as regular work at a clinic, rather than for a
+specific event</inlineHelpText>
         <label>Ongoing</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>

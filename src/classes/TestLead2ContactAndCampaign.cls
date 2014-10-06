@@ -14,6 +14,21 @@ private class TestLead2ContactAndCampaign
     	return testLead;
 	}
 	
+	static testMethod void MakeSureVolunteersNotConverted ()
+	{
+		ID VolunteerRecordTypeID = [select ID from RecordType where sObjectType='Lead' and DeveloperName='Volunteer'].id;
+
+    	Lead testLead = new Lead (FirstName = 'Test', LastName = 'Testing123', Company = 'TestAccount', EMail = 'test@test123.com', 
+    		LeadSource='Volunteer', Status='Open - not converted');
+    	
+    	insert testLead;
+		
+		Lead leadCreated = [select ID, RecordTypeID, Status, Conversion_Error__c from Lead where ID=:testLead.id limit 1];
+		system.assertEquals (VolunteerRecordTypeID, leadCreated.RecordTypeID);
+		system.assertEquals ('Open - not converted', leadCreated.Status);
+		system.assertEquals (null, leadCreated.Conversion_Error__c);
+	}
+	
 	static testMethod void ConvertLeadToContactTest()
     {
     	Lead[] leadsbefore = [select ID, Name from Lead];

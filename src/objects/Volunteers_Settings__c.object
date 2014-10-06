@@ -27,6 +27,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Notice_Board__c</fullName>
+        <externalId>false</externalId>
+        <label>Notice Board</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Personal_Site_Org_Wide_Email_Name__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>The Display Name of the Organization-Wide Email Address to use on the email sent from the PersonalSiteContactLookup Sites page.</inlineHelpText>

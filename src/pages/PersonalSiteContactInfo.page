@@ -73,16 +73,8 @@
 		            <!-- Graph ----------------------------------------- -->
 		            <apex:outputPanel layout="block" id="pbGraph" rendered="{!AND(NOT(isEditing), hasCompletedHours)}" styleClass="span8">		            
 			            <div class="well large">
-			                <h3>{!$Label.labelContactInfoChart}</h3>
-			                <apex:chart data="{!chartData}" height="250" width="100%" id="idChart" colorSet="#39c" >
-			                    <apex:axis type="Numeric" position="left" title="{!$Label.labelContactInfoChartYAxis}" grid="true" fields="sumHours" dashSize="2">
-			                        <apex:chartLabel />
-			                    </apex:axis>
-			                    <apex:axis type="Category" position="bottom" fields="strDateLabel" title="{!$Label.labelContactInfoChartXAxis}">
-			                       <apex:chartLabel rotate="315"/>
-			                    </apex:axis>
-			                    <apex:barSeries orientation="vertical" axis="left" xField="strDateLabel" yField="sumHours" />
-			                </apex:chart>
+			                <h3>{!$Label.labelNoticeBoardTitle}</h3>
+			                <apex:outputText escape="false" value="{!$Setup.Volunteers_Settings__c.Notice_Board__c}" />
 			            </div>
 		        
 		                <!-- Volunteer Stats ----------------------------------------- -->

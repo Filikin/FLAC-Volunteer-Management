@@ -783,6 +783,13 @@ day:      &apos;day&apos;</value>
         <value>My Centres</value>
     </labels>
     <labels>
+        <fullName>labelNoticeBoardTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>labelNoticeBoardTitle</shortDescription>
+        <value>Notice Board</value>
+    </labels>
+    <labels>
         <fullName>labelNumberOfContacts</fullName>
         <categories>MassEmailVolunteers</categories>
         <language>en_US</language>

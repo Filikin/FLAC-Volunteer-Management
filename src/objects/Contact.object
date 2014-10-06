@@ -101,22 +101,7 @@
         <fullName>PersonalSiteContactInfoPanel1FS</fullName>
         <description>PersonalSiteContactInfo - the first panel which should include any fields on the Contact that you want the user to be able to edit.</description>
         <displayedFields>
-            <field>Email</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>HomePhone</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MobilePhone</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Volunteer_Skills__c</field>
+            <field>Main_job_in_FLAC_Centre__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -156,7 +141,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Volunteer_Skills__c</field>
+            <field>Main_job_in_FLAC_Centre__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -181,7 +166,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Volunteer_Skills__c</field>
+            <field>Main_job_in_FLAC_Centre__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -246,12 +231,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Volunteer_Skills__c</field>
+            <field>Volunteer_Availability__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Volunteer_Availability__c</field>
+            <field>Main_job_in_FLAC_Centre__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -707,6 +692,10 @@ Only for Data IMPORT/UPDATE purposes</inlineHelpText>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volunteer</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2708,6 +2697,15 @@ They are not to be included in mass mailings</inlineHelpText>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Why_want_to_volunteer__c</fullName>
+        <externalId>false</externalId>
+        <label>Why want to volunteer</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Willing_to_do_research__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Volunteer has indicated that they may be available for research</description>
@@ -4422,6 +4420,10 @@ if(ISPICKVAL(npe01__Secondary_Address_Type__c,&quot;Work&quot;),
             </values>
             <values>
                 <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volunteer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8751,6 +8753,17 @@ OR(
         <errorDisplayField>npe01__PreferredPhone__c</errorDisplayField>
         <errorMessage>Please select a Preferred Phone</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Send_Login_Details</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send Login Details</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/_ui/core/email/author/EmailAuthor?p2_lkid={! Contact.Id}&amp;rtype=003&amp;retURL=%2F{!Contact.Id}&amp;template_id=00XL0000000DwKe</url>
+    </webLinks>
     <webLinks>
         <fullName>Vcard</fullName>
         <availability>online</availability>

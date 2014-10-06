@@ -119,7 +119,7 @@
     <fields>
         <fullName>Duration__c</fullName>
         <externalId>false</externalId>
-        <label>Duration</label>
+        <label>Duration (Hours)</label>
         <precision>4</precision>
         <required>true</required>
         <scale>2</scale>

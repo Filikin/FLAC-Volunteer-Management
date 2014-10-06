@@ -188,6 +188,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>VolunteerIDs__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal use to keep track of the confirmed volunteers</inlineHelpText>
+        <label>VolunteerIDs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Volunteer_Job__c</fullName>
         <externalId>false</externalId>
         <label>Volunteer Job</label>

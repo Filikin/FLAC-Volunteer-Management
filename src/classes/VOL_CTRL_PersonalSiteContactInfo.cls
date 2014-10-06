@@ -68,9 +68,11 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
             // also maintain a readonly version of the contact to display rollup summary fields.
             contactReadOnly = con;
         }
+        NoticeBoard = VOL_SharedCode.VolunteersSettings.Notice_Board__c;
         
 	}
 
+	global String NoticeBoard {get; set;}
     global Contact contactEdit { 
         get {
             if (contactEdit == null) contactEdit = new Contact();

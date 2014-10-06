@@ -1,6 +1,8 @@
 /*
 Author: Eamon Kelly, Enclude
 Purpose: Use fieldsets to map a lead to a contact and a campaign
+
+EK 3/10/2014 - if from the volunteer signup web page, don't convert
 Called from: TriggerDispatcher
 Tested in: 
 */
@@ -40,9 +42,15 @@ public with sharing class WebToLeadToContactAndCampaignClass implements TriggerD
 		// if an update, then also need to update the campaign
 	    ID PILABulletinID = [select ID from RecordType where sObjectType='Lead' and DeveloperName='PILA_Bulletin'].id;
 	    ID PILAConferenceID = [select ID from RecordType where sObjectType='Lead' and DeveloperName='PILA_Conference'].id;
+ 		ID VolunteerRecordTypeID = [select ID from RecordType where sObjectType='Lead' and DeveloperName='Volunteer'].id;
     	For(Lead ld: newLeads)
 	    {
-	    	if ((ld.RecordTypeId == null || ld.RecordTypeId == PILABulletinID) && isValid(ld.Email))
+	    	if (ld.LeadSource == 'Volunteer')
+	    	{
+	    		ld.RecordTypeId = VolunteerRecordTypeID;
+	    		continue;
+	    	}
+	    	else if ((ld.RecordTypeId == null || ld.RecordTypeId == PILABulletinID) && isValid(ld.Email))
 	    	{
 	    		PilaBulletinLead (ld);
 	    	}

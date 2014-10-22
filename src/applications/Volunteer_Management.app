@@ -12,6 +12,6 @@
     <tab>FLAC_Centre__c</tab>
     <tab>standard-Campaign</tab>
     <tab>standard-report</tab>
-    <tab>Volunteer_Recurrence_Schedule__c</tab>
     <tab>Job_Recurrence_Schedule__c</tab>
+    <tab>Volunteer_Hours__c</tab>
 </CustomApplication>

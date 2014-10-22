@@ -8,7 +8,7 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
 		// set default property values
 		cRowsCompleted = 10;
 		cRowsUpcoming = 10;
-    	strDateFormat = 'E M/d/yy';
+    	strDateFormat = 'E d/M/yy';
     	strTimeFormat = 'h:mm tt';
     	strLanguage = 'en-us'; 
     	isEditing = false;
@@ -208,7 +208,8 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
 
 			DateTime dtStart = hr.Planned_Start_Date_Time__c == null ? hr.Shift_Start_Date_Time__c : hr.Planned_Start_Date_Time__c;
 			if (dtStart == null) dtStart = hr.Start_Date__c;
-			double duration = hr.Hours_Worked__c == null ? hr.Volunteer_Shift__r.Duration__c : hr.Hours_Worked__c;
+//			double duration = hr.Hours_Worked__c == null ? hr.Volunteer_Shift__r.Duration__c : hr.Hours_Worked__c;
+			double duration = hr.Volunteer_Shift__r.Duration__c;
 			DateTime dtEnd = dtStart.addMinutes(integer.valueOf(duration * 60));
 			string strStart = dtStart.format(strFormat, strTimeZone);
 			
@@ -255,14 +256,19 @@ global with sharing class VOL_CTRL_PersonalSiteContactInfo {
 	}
 	   
 	global PageReference cancelShift() {
-		if (hoursId != null) {           
-			Volunteer_Hours__c hr = [select Id, Status__c, Hours_Worked__c from Volunteer_Hours__c where Id = :hoursId];
-			hr.Status__c = 'Cancelled';
-			hr.Hours_Worked__c = 0;
-			update hr;
-			hoursId = null; 
-			listUpcomingVolunteerHours = null; // to force it to be refreshed.
+		try
+		{
+			if (hoursId != null) {           
+				Volunteer_Hours__c hr = [select Id, Status__c, Hours_Worked__c from Volunteer_Hours__c where Id = :hoursId];
+				hr.Status__c = 'Cancelled';
+				hr.Hours_Worked__c = 0;
+				update hr;
+				hoursId = null; 
+				listUpcomingVolunteerHours = null; // to force it to be refreshed.
+			}
 		}
+		catch (Exception e)
+		{}
 		return null;
 	}
 	

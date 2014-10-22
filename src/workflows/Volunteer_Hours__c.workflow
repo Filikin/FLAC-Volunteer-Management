@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Shift_Cancelled</fullName>
+        <description>Shift Cancelled</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>flac@enclude.ie</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Volunteers_Email_Templates/Volunteer_Shift_Cancelled</template>
+    </alerts>
+    <alerts>
         <fullName>Volunteer_Job_Signup_Notification_Email_Alert</fullName>
         <description>Volunteer Job Signup Notification Email Alert</description>
         <protected>false</protected>
@@ -52,6 +63,21 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <rules>
+        <fullName>Shift Cancelled</fullName>
+        <actions>
+            <name>Shift_Cancelled</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Volunteer_Hours__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <description>When someone cancels a shift send an email to Zsé</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>Volunteer Hours - Set End Date</fullName>
         <actions>

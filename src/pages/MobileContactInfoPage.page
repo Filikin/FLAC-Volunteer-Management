@@ -1,0 +1,94 @@
+<apex:page controller="VOL_CTRL_PersonalSiteContactInfo" showheader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" cache="false" >
+
+
+<html> 
+	<head> 
+	<title>FLAC Volunteers</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"/> 
+	
+<script>
+	if ({!contactId == ''}) {
+		window.location.replace("{!$Site.CurrentSiteUrl}PersonalSiteContactLookup");
+	}
+}
+</script>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+</head> 
+<body> 
+	<apex:form style="width:940px;">
+        <!-- Profile ----------------------------------------- -->
+		<div data-role="page" id="mainpage">
+	    	<div data-role="header">
+	        	<h2>{!contactEdit.FirstName + ' ' + contactEdit.LastName}</h2>
+			    <a href="#shiftpage">My Shifts</a>
+	 			<a href="{!$Site.CurrentSiteUrl + 'MobileJobListingPage'}" data-role="button" data-inline="true" rel="external">UpcomingShifts</a>
+			</div>
+	        <div data-role="content">
+	        	<apex:repeat value="{!$ObjectType.Contact.FieldSets.PersonalSiteContactInfoPanel1FS}" var="f" >
+                	<h5 style="margin:5px auto; padding-bottom:0px; ">
+	                    <apex:outputField value="{!contactEdit[f]}" rendered="{!NOT(isEditing)}" styleClass="{!IF(f.Type == 'Long Text Area', 'cssInputFields cssTextArea', 'cssInputFields')}" />
+                    </h5>		              
+                </apex:repeat>   
+            </div>
+ 	       	<div data-role="header">
+				<h1>{!$Label.labelNoticeBoardTitle}</h1>
+			</div>            
+		    <div data-role="content">
+			    <apex:outputText escape="false" value="{!$Setup.Volunteers_Settings__c.Notice_Board__c}" />
+			</div>
+		</div> 
+        <!-- Upcoming Shifts ----------------------------------------- -->
+		<div data-role="page" id="shiftpage">
+	    	<div data-role="header">
+	        	<h2>{!$Label.labelContactInfoUpcomingShifts}</h2>
+	 			<a href="#mainpage">Main Page</a>
+	 			<a href="{!$Site.CurrentSiteUrl + 'MobileJobListingPage'}" data-role="button" data-inline="true" rel="external">UpcomingShifts</a>
+	 		</div>
+		    <div data-role="content" id="shiftlist">
+		    <apex:pageBlock >
+			    <apex:pageBlockSection >
+	 	           <apex:pageBlockTable value="{!listUpcomingVolunteerHours}" var="hr" rules="none" styleClass="table" >
+		               <!-- holds user formatted date string. -->
+		               <apex:column value="{!hr.Comments__c}" headerValue="{!$Label.labelContactInfoDateTableColumn}" width="99px" />
+		               <!-- holds user formatted time string. -->
+		               <apex:column value="{!hr.System_Note__c}" headerValue="{!$Label.labelContactInfoTimeTableColumn}" width="140px" /> 
+		               <apex:column value="{!hr.Volunteer_Job__r.Name} " headerValue="{!$Label.labelContactInfoJobTableColumn}" width="100px" /> 
+		               <!-- now field set defined columns -->
+		               <apex:repeat value="{!$ObjectType.Volunteer_Hours__c.FieldSets.PersonalSiteContactInfoUpcomingShifts}" var="f" >
+		                   <apex:column value="{!hr[f]}" />
+		               </apex:repeat>                  
+		               <apex:column headerValue="{!$Label.labelContactInfoDetails}" >  
+		                   <a href="{!$Site.CurrentSiteUrl + 'MobileJobListingPage' + 
+		                       '?nMonthsToShow=1&JobId=' + hr.Volunteer_Job__c + 
+		                       '&dtMonthFilter=' + TEXT(hr.Start_Date__c) }" id="linkDetails" data-role="button" data-inline="true" rel="external">
+		                       Info</a>
+		               </apex:column>
+		               <apex:column headerValue="{!$Label.labelButtonCancel}" rendered="{!hr.CanCancel__c}">
+		                   <a href="{!$Site.CurrentSiteUrl}MobileContactInfoPage#shiftpage" onclick="if (confirm('{!$Label.labelContactInfoCancelMessage}')==true) {cancelSelectedShift('{!hr.id}'); $('#{!hr.id}').hide(); $('#{!hr.id}c').css('display', 'inline');; return true;}" data-role="button" data-inline="true"  rel="external" id="{!hr.id}">
+		                       Cancel</a>
+		                   <div style="display: none;" id="{!hr.id}c">Cancelled</div>
+		                       
+		               </apex:column>  
+		           </apex:pageBlockTable>
+		           <apex:actionFunction action="{!cancelShift}" name="cancelSelectedShift" rerender="#shiftpage">
+        				<apex:param name="hoursId" assignTo="{!hoursId}" value="" />
+    				</apex:actionFunction>
+		           </apex:pageBlockSection>
+		        </apex:pageBlock> 
+    			   
+            </div>
+        </div>        		 		    
+	          <!--  Job listing page -->    
+        <div data-role="page" id="joblistingpage">
+        </div>    		 		    
+	  
+	  
+		</apex:form>            
+
+	</body>
+</html>
+</apex:page>

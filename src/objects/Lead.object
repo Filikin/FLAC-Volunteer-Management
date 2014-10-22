@@ -438,6 +438,42 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Home_Area_Town__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Area/Town</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Home_City__c</fullName>
+        <externalId>false</externalId>
+        <label>Home City</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Home_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Home_Street__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>I_would_like_to_receive_PILA_Bulletin__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -653,6 +689,77 @@
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Legal_Expertise__c</fullName>
+        <externalId>false</externalId>
+        <label>Legal Expertise</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Credit &amp; Debt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Criminal Law</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment Law</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family Law</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housing/Tenancy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Law</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Injuries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Welfare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Succession/Probate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Irish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Law</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neighbour Disputes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Interest in Land</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Legal_Qualifications__c</fullName>
@@ -1416,40 +1523,12 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Work_Area_Town__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Area/Town</label>
-        <length>200</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Work_City__c</fullName>
-        <externalId>false</externalId>
-        <label>Work City</label>
-        <length>200</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Work_Phone__c</fullName>
         <externalId>false</externalId>
         <label>Work Phone</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Work_Street__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Street</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>npe01__Preferred_Email__c</fullName>
@@ -1854,6 +1933,57 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Legal_Expertise__c</picklist>
+            <values>
+                <fullName>Credit %26 Debt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Criminal Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing%2FTenancy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Irish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Injuries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Succession%2FProbate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2528,6 +2658,57 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Legal_Expertise__c</picklist>
+            <values>
+                <fullName>Credit %26 Debt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Criminal Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing%2FTenancy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Irish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Injuries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Succession%2FProbate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Level_of_exp_Property_Interest_in_Land__c</picklist>
             <values>
                 <fullName>Extensive</fullName>
@@ -3198,6 +3379,69 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Legal_Expertise__c</picklist>
+            <values>
+                <fullName>Consumer Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit %26 Debt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Criminal Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing%2FTenancy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Irish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbour Disputes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Injuries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property Interest in Land</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Welfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Succession%2FProbate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Level_of_exp_Property_Interest_in_Land__c</picklist>
             <values>
                 <fullName>Extensive</fullName>
@@ -3674,6 +3918,7 @@
         <lookupPhoneDialogsAdditionalFields>LEAD.COMPANY</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LEAD.PHONE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LEAD.MOBILE_PHONE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>00NL0000003JARH</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00NL0000003Hz7x</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LEAD.TITLE</searchResultsAdditionalFields>

@@ -987,7 +987,7 @@ day:      &apos;day&apos;</value>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>help text for the Volunteers Wizard Jobs &amp; Shifts section.</shortDescription>
-        <value>Choose an existing campaign to copy Jobs, Shifts, and Hours from, or fill out how many sample Jobs and Shifts to create.  Note that you can also use Job Recurrence Schedules to repeat Jobs and Shifts into the future.</value>
+        <value>Choose an existing campaign to copy Jobs, Shifts, and Hours from.</value>
     </labels>
     <labels>
         <fullName>labelVolunteersWizardJobsAndShifts</fullName>

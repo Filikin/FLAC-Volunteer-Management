@@ -29,6 +29,20 @@ private class TestLead2ContactAndCampaign
 		system.assertEquals (null, leadCreated.Conversion_Error__c);
 	}
 	
+	static testMethod void CheckLegalExpertise ()
+	{
+		Lead testLead = new Lead (FirstName = 'Test', LastName = 'Testing123', Company = 'TestAccount', EMail = 'test@test123.com', 
+    	LeadSource='Volunteer', Status='Open - not converted', Level_of_exp_Property_Interest_in_Land__c='Significant', Level_of_experience_of_Consumer_Law__c='Extensive 5+ years');
+    	
+    	insert testLead;
+		
+		Lead leadCreated = [select ID, Legal_Expertise__c from Lead where ID=:testLead.id limit 1];
+		system.assert (leadCreated.Legal_Expertise__c.Contains ('Property'));
+		system.assert (leadCreated.Legal_Expertise__c.Contains ('Consumer'));
+		system.assert (!leadCreated.Legal_Expertise__c.Contains ('Family'));
+		
+	}
+	
 	static testMethod void ConvertLeadToContactTest()
     {
     	Lead[] leadsbefore = [select ID, Name from Lead];

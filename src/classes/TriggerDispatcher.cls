@@ -26,5 +26,12 @@ public with sharing class TriggerDispatcher
 			activeFunction.MainEntry (TriggerObject, isBefore, isDelete, isAfter, isInsert, isUpdate, isExecuting, newList, newMap, oldList, oldMap);
 			InTrigger = false;
 		}
+		else if (TriggerObject == 'Contact')
+		{
+			InTrigger = true;
+			activeFunction = new MapExtraLeadFieldsToContact();
+			activeFunction.MainEntry (TriggerObject, isBefore, isDelete, isAfter, isInsert, isUpdate, isExecuting, newList, newMap, oldList, oldMap);
+			InTrigger = false;
+		}
 	}
 }

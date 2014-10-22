@@ -394,6 +394,12 @@ global virtual with sharing class VOL_CTRL_VolunteersJobListingFS {
     
     private class MyException extends Exception {}
     
+    global virtual void MobileShiftSignUp ()
+    {
+    	VolunteerShiftSignUp();
+    	ChangeCampaign();
+    }
+    
     global virtual PageReference VolunteerShiftSignUp() {
         try {               
             // clear return variables in case we fail.

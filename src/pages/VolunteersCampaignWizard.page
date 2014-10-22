@@ -42,7 +42,7 @@
 	   				</apex:pageBlockSectionItem>
                 </apex:pageBlockSectionItem>
                 
-                <apex:pageBlockSectionItem >
+                <apex:pageBlockSectionItem rendered="false">
                     <apex:outputText value="{!$Label.labelVolunteersWizardSampleJobs}" rendered="{!campaignIdClone == null}"/>
                     <apex:selectList value="{!cSampleJobs}" size="1" rendered="{!campaignIdClone == null}">
                         <apex:selectOption itemValue="0" itemLabel="" /> 
@@ -54,12 +54,12 @@
                     </apex:selectList>  
                 </apex:pageBlockSectionItem>
                                 
-                <apex:pageBlockSectionItem >
+                <apex:pageBlockSectionItem rendered="false">
                     <apex:outputText value="{!$Label.labelVolunteersWizardFirstShiftDate}"  rendered="{!campaignIdClone != null}"/>
 	                <apex:outputField value="{!cmpShiftDates.StartDate}" rendered="{!campaignIdClone != null}" />
                 </apex:pageBlockSectionItem>
 
-                <apex:pageBlockSectionItem >
+                <apex:pageBlockSectionItem rendered="false">
                     <apex:outputText value="{!$Label.labelVolunteersWizardSampleShifts}" rendered="{!campaignIdClone == null}"/>
                     <apex:selectList value="{!cSampleShifts}" size="1" rendered="{!campaignIdClone == null}">
                         <apex:selectOption itemValue="0" itemLabel="" /> 

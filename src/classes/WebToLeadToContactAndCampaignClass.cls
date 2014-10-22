@@ -48,6 +48,7 @@ public with sharing class WebToLeadToContactAndCampaignClass implements TriggerD
 	    	if (ld.LeadSource == 'Volunteer')
 	    	{
 	    		ld.RecordTypeId = VolunteerRecordTypeID;
+	    		if (!isUpdate) VolunteerLead (ld);
 	    		continue;
 	    	}
 	    	else if ((ld.RecordTypeId == null || ld.RecordTypeId == PILABulletinID) && isValid(ld.Email))
@@ -72,6 +73,70 @@ public with sharing class WebToLeadToContactAndCampaignClass implements TriggerD
 	    }
 		if (newContacts.size() > 0) upsert newContacts;
 		if (accountsToUpdate.size() > 0) update accountsToUpdate;
+	}
+	
+	public Boolean IncludeExpertise (String expertise)
+	{
+		if (expertise != null && (expertise.contains ('Significant') || expertise.contains ('Extensive')))
+		{
+			return true;
+		}
+		else return false;
+	}
+	
+	public void VolunteerLead (Lead ld)
+	{
+		//The level of expertise picklists will come over from Web to Lead. 
+		// If the level of an expertise is either "Significant" or "Extensive" then the expertise is added to the Legal Expertise picklist
+		ld.Legal_Expertise__c = '';
+		if (IncludeExpertise(ld.Level_of_experience_of_Consumer_Law__c))
+		{
+			ld.Legal_Expertise__c += 'Consumer Law;';
+		} 
+		if (IncludeExpertise(ld.Level_of_experience_of_Credit_and_Debt__c))
+		{
+			ld.Legal_Expertise__c += 'Credit & Debt;';
+		} 
+		if (IncludeExpertise(ld.Level_of_experience_of_Employment_Law__c))
+		{
+			ld.Legal_Expertise__c += 'Employment Law;';
+		} 
+		if (IncludeExpertise(ld.Level_of_experience_of_Family_Law__c))
+		{
+			ld.Legal_Expertise__c += 'Family Law;';
+		} 
+		if (IncludeExpertise(ld.Level_of_experience_of_Housing_Tenancy__c))
+		{
+			ld.Legal_Expertise__c += 'Housing/Tenancy;';
+		} 
+		if (IncludeExpertise(ld.Level_of_experience_of_Personal_Injuries__c))
+		{
+			ld.Legal_Expertise__c += 'Personal Injuries;';
+		} 
+		if (IncludeExpertise(ld.Level_of_experience_of_Social_Welfare__c))
+		{
+			ld.Legal_Expertise__c += 'Social Welfare;';
+		} 
+		if (IncludeExpertise(ld.Level_of_exp_of_Criminal_Law__c))
+		{
+			ld.Legal_Expertise__c += 'Criminal Law;';
+		} 
+		if (IncludeExpertise(ld.Level_of_exp_of_Immigration_Refugee__c))
+		{
+			ld.Legal_Expertise__c += 'Immigration;';
+		} 
+		if (IncludeExpertise(ld.Level_of_exp_of_Neighbour_Disputes__c))
+		{
+			ld.Legal_Expertise__c += 'Neighbour Disputes;';
+		} 
+		if (IncludeExpertise(ld.Level_of_exp_of_Succession_Probate__c))
+		{
+			ld.Legal_Expertise__c += 'Succession/Probate;';
+		} 
+		if (IncludeExpertise(ld.Level_of_exp_Property_Interest_in_Land__c))
+		{
+			ld.Legal_Expertise__c += 'Property Interest in Land;';
+		} 
 	}
 	
 	public void PilaConferenceLead (Lead ld, Boolean isUpdate)

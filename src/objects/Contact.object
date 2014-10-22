@@ -704,6 +704,46 @@ Only for Data IMPORT/UPDATE purposes</inlineHelpText>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lead_Home_Area_Town__c</fullName>
+        <description>Temp used when Contact is created from a lead to populate the home address field</description>
+        <externalId>false</externalId>
+        <label>Lead Home Area Town</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Home_City_County__c</fullName>
+        <description>Temp used when Contact is created from a lead to populate the home address field</description>
+        <externalId>false</externalId>
+        <label>Lead Home City County</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Home_Phone__c</fullName>
+        <description>Temp used when Contact is created from a lead to populate the home phone field</description>
+        <externalId>false</externalId>
+        <label>Lead Home Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Home_Street__c</fullName>
+        <description>Temp used when Contact is created from a lead to populate the home address field</description>
+        <externalId>false</externalId>
+        <label>Lead Home Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Legal_Expertise__c</fullName>
         <externalId>false</externalId>
         <label>Legal Expertise</label>
@@ -754,6 +794,18 @@ Only for Data IMPORT/UPDATE purposes</inlineHelpText>
             </picklistValues>
             <picklistValues>
                 <fullName>Legal Irish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Law</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neighbour Disputes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Interest in Land</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1336,6 +1388,10 @@ IF ( Len( MailingStreet)=0,( MailingStreet),(( MailingStreet) &amp;br()))
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Qualified in Ireland but not currently practicing law</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4434,6 +4490,10 @@ if(ISPICKVAL(npe01__Secondary_Address_Type__c,&quot;Work&quot;),
         <picklistValues>
             <picklist>Legal_Expertise__c</picklist>
             <values>
+                <fullName>Consumer Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Credit %26 Debt</fullName>
                 <default>false</default>
             </values>
@@ -4466,7 +4526,15 @@ if(ISPICKVAL(npe01__Secondary_Address_Type__c,&quot;Work&quot;),
                 <default>false</default>
             </values>
             <values>
+                <fullName>Neighbour Disputes</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Personal Injuries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property Interest in Land</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4578,6 +4646,10 @@ if(ISPICKVAL(npe01__Secondary_Address_Type__c,&quot;Work&quot;),
             </values>
             <values>
                 <fullName>Overseas Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified in Ireland but not currently practicing law</fullName>
                 <default>false</default>
             </values>
             <values>

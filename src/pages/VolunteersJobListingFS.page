@@ -93,6 +93,7 @@
 
     <apex:outputPanel rendered="{!jobIdFilter = null}" >
         <apex:form > 
+    <apex:actionFunction name="rerenderJoblist" rerender="jobList" action="{!ChangeCampaign}"/>
             <apex:pageBlock >
                 <apex:pageBlockSection columns="1" >
                     <apex:pageBlockSectionItem >
@@ -105,7 +106,7 @@
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:actionStatus layout="inline" startText="{!$Label.labelMessageLoading}" stopText="" id="retrieveStatus" 
-                            startStyle="color:green; font-style:italic" stopStyle="color:black;"  onstop="rerenderJobList()">
+                            startStyle="color:green; font-style:italic" stopStyle="color:black;" >
                         </apex:actionStatus>
                     </apex:pageBlockSectionItem>
                 </apex:pageBlockSection>
@@ -119,7 +120,7 @@
     
     <apex:outputPanel id="jobList">
         <apex:repeat value="{!listVolunteerJobs}" var="job" id="rptJobs" >
-            <p><apex:outputText value="{!job.Name}" styleClass="cssJobName" rendered="{!ShowJobName}"/></p>
+            <br/><p><apex:outputText value="{!job.Name}" styleClass="cssJobName" rendered="{!ShowJobName}"/></p>
             <apex:outputField value="{!job.Description__c}" rendered="{!ShowDescription}"/>
             <apex:outputPanel rendered="{!ShowSkills && job.Skills_Needed__c <> null}" >
 	            <p class="cssJobSkills" >{!$ObjectType.Contact.Fields.Main_job_in_FLAC_Centre__c.Label}:&nbsp;&nbsp;
@@ -144,7 +145,7 @@
 	        </apex:outputPanel>         
 	        <apex:dataTable value="{!job.Volunteer_Job_Slots__r}" var="shift" id="rptShifts" columnClasses="cssJobShiftSignup" rendered="{!ShowShifts}" >
 	            <apex:column style="text-align:center;" >
-	                 <apex:outputPanel rendered="{!shift.Number_of_Volunteers_Still_Needed__c != 0} && CONTAINS(shift.VolunteerIDs__c, strContactID) != true" >
+	                <apex:outputPanel rendered="{!shift.Number_of_Volunteers_Still_Needed__c != 0 && CONTAINS(shift.VolunteerIDs__c, strContactID) != true}" >
 	                    <a href="SignUp" onclick="
 	                    	var x = '{!shift.System_Note__c}';   
 	                    	if (x == '') x = JobShiftDateTimeString('{!shift.Start_Date_Time__c}', '{!shift.Duration__c}');
@@ -208,7 +209,7 @@
 <!-- this div contains the thank you dialog we'll use jQuery to display -->
 <div id="dlgThankYou" title="{!$Label.labelTitleJobSignup}">
             <p class="cssThankYou">{!$Label.labelVolunteerSignupThankYou}</p>
-            <input type="button" value="{!$Label.labelButtonClose}" onclick="j$('#dlgThankYou').dialog('close'); return false;" class="cssButton btn" />
+            <input type="button" value="{!$Label.labelButtonClose}" onclick="j$('#dlgThankYou').dialog('close'); rerenderJoblist(); return false;" class="cssButton btn" />
 </div> <!-- end of the thank you dialog -->
 
 </apex:page>

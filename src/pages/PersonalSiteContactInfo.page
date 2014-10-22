@@ -119,7 +119,7 @@
 	                                    '&dtMonthFilter=' + TEXT(hr.Start_Date__c) }" id="linkDetails" styleClass="btn btn-info" >
 	                                    <i class="icon-search"></i></apex:outputLink>
 	                            </apex:column>
-	                            <apex:column headerValue="{!$Label.labelButtonCancel}" >
+	                            <apex:column headerValue="{!$Label.labelButtonCancel}" rendered="{!hr.CanCancel__c}">
 	                                <apex:commandLink action="{!cancelShift}" onclick="if (confirm('{!$Label.labelContactInfoCancelMessage}')==false) { return false;}" StyleClass="btn btn-danger" >
 	                                    <i class='icon-trash'></i>
 	                                    <apex:param assignTo="{!hoursId}" name="hoursId" value="{!hr.id}" />
